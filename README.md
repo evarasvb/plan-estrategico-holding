@@ -126,7 +126,7 @@
         }
         .gantt-row-simplified {
             display: grid;
-            grid-template-columns: 180px repeat(6, 1fr); /* Task name + 6 time units (Meses) */
+            grid-template-columns: 180px repeat(6, 1fr); /* Task name + 6 time units (Semanas) */
             align-items: center;
             gap: 2px;
             padding: 0.3rem 0;
@@ -414,33 +414,33 @@
             </div>
         </section>
 
-        <!-- Sección: Carta Gantt Simplificada (Existente) -->
+        <!-- Sección: Carta Gantt Simplificada (Actualizada) -->
         <section id="gantt_simple" class="mb-8 content-card">
-            <h2 class="section-heading">Carta Gantt Simplificada (Próximos 6 Meses) (Holding)</h2>
+            <h2 class="section-heading">Carta Gantt Simplificada (Próximas 6 Semanas) (Holding)</h2>
             <div class="gantt-simplified overflow-x-auto p-2">
                 <div class="gantt-timeline-header-simplified">
-                    <div class="gantt-task-name-simplified gantt-header-simplified">Actividad / Mes</div>
-                    {[...Array(6)].map((_, i) => `<div class="gantt-header-simplified">Mes ${i+1}</div>`).join('')}
+                    <div class="gantt-task-name-simplified gantt-header-simplified">Actividad / Semana</div>
+                    {[...Array(6)].map((_, i) => `<div class="gantt-header-simplified">Semana ${i+1}</div>`).join('')}
                 </div>
 
                 {[
-                    { name: 'Análisis Clientes (1-2)', start: 1, span: 1, color: '#06D6A0' },
-                    { name: 'Capacitación Equipo (3-4)', start: 1, span: 1, color: '#06D6A0', offset: 0.5 }, // Solapado
-                    { name: 'Revisión Carteras (4-5)', start: 2, span: 1, color: '#06D6A0' },
-                    { name: 'Implement. Estrategias (5)', start: 2, span: 5, color: '#118AB2' }, // Duración extendida
-                    { name: 'Implement. ERP (6)', start: 1, span: 6, color: '#FF6B6B' }, // A lo largo de 6 meses
-                    { name: 'Optimización Robot (Mary)', start: 1, span: 3, color: '#FFD166'},
-                    { name: 'Seguimiento KPIs (7)', start: 2, span: 5, color: 'rgba(255,209,102,0.6)'}
+                    { name: 'Análisis Clientes', start: 1, span: 2, color: '#06D6A0' }, // Semanas 1-2
+                    { name: 'Optimización Robot', start: 1, span: 3, color: '#FFD166'}, // Semanas 1-3
+                    { name: 'Capacitación Equipo', start: 2, span: 1, color: '#06D6A0' }, // Semana 2 (visual separation from week 1 tasks)
+                    { name: 'Revisión Carteras', start: 3, span: 1, color: '#06D6A0' }, // Semana 3
+                    { name: 'Implement. Estrategias', start: 3, span: 4, color: '#118AB2' }, // Semanas 3-6
+                    { name: 'Seguimiento KPIs', start: 4, span: 3, color: 'rgba(255,209,102,0.6)'}, // Semanas 4-6 (starts slightly after Implement. Estrategias)
+                    { name: 'Implementación ERP', start: 1, span: 6, color: '#FF6B6B' } // Semanas 1-6 (long-term project)
                 ].map(task => `
                     <div class="gantt-row-simplified">
                         <div class="gantt-task-name-simplified" title="${task.name}">${task.name}</div>
                         <div class="gantt-bar-container-simplified" style="--start-col: ${Math.floor(task.start) + 1}; --span-col: ${task.span};">
-                            <div class="gantt-bar-simplified" style="background-color: ${task.color}; margin-left: ${task.offset ? (task.offset * 100 / task.span) + '%' : '0'}; width: ${task.offset ? (100 - (task.offset * 100 / task.span)) + '%' : '100%'};"></div>
+                            <div class="gantt-bar-simplified" style="background-color: ${task.color};"></div>
                         </div>
                     </div>
                 `).join('')}
             </div>
-            <p class="text-xs text-gray-500 mt-2 text-center">Nota: Cada columna representa un mes. Las barras indican duración estimada.</p>
+            <p class="text-xs text-gray-500 mt-2 text-center">Nota: Cada columna representa una semana. Las barras indican duración estimada.</p>
         </section>
 
         <!-- Sección: KPIs Esenciales para Seguimiento (Existente) -->
