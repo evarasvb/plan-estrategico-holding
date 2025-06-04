@@ -116,7 +116,7 @@
             color: #073B4C; /* Midnight Green */
         }
 
-        /* Estilos para la tabla Gantt */
+        /* Estilos para la tabla Gantt - SECCIÓN ELIMINADA, PERO MANTENGO ESTILOS POR SI SE REINCORPORA O AFECTA OTROS ELEMENTOS */
         .gantt-simplified {
             font-size: 0.8rem;
             background-color: #fff;
@@ -256,7 +256,7 @@
                 <a href="#objetivos_simple">Objetivos Holding</a>
                 <a href="#estrategia_clientes_simple">Estrategia Clientes Holding</a>
                 <a href="#plan_trabajo_simple">Plan de Trabajo Holding</a>
-                <a href="#gantt_simple">Gantt Holding</a>
+                <!-- <a href="#gantt_simple">Gantt Holding</a> --> <!-- Enlace eliminado -->
                 <a href="#kpis_simple">KPIs Holding</a>
                 <a href="#introduccion_firmavb">Introducción FirmaVB</a>
                 <a href="#fundamentos_firmavb">Fundamentos FirmaVB</a>
@@ -357,7 +357,7 @@
                             <td class="p-2 bg-red-50">🔍 EVALUAR</td>
                         </tr>
                         <tr class="text-center border-b">
-                            <td class="p-2 font-semibold bg-slate-50">Margen Medio</td>
+                            <td class="p-2 bg-slate-50">Margen Medio</td>
                             <td class="p-2 bg-green-50">📈 OPTIMIZAR MARGEN</td>
                             <td class="p-2 bg-yellow-50">⚖️ MANTENER/OPTIMIZAR</td>
                             <td class="p-2 bg-red-50">🚨 ALERTA</td>
@@ -428,7 +428,8 @@
             </div>
         </section>
 
-        <!-- Sección: Carta Gantt Simplificada (Actualizada) -->
+        <!-- Sección: Carta Gantt Simplificada (ELIMINADA) -->
+        <!--
         <section id="gantt_simple" class="mb-8 content-card">
             <h2 class="section-heading">Carta Gantt Simplificada (Próximas 6 Semanas) (Holding)</h2>
             <div class="gantt-simplified overflow-x-auto p-2">
@@ -456,6 +457,7 @@
             </div>
             <p class="text-xs text-gray-500 mt-2 text-center">Nota: Cada columna representa una semana. Las barras indican duración estimada.</p>
         </section>
+        -->
 
         <!-- Sección: KPIs Esenciales para Seguimiento (Existente) -->
         <section id="kpis_simple" class="mb-8 content-card">
