@@ -1,4 +1,4 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -255,6 +255,7 @@ DOCTYPE html>
                 <a href="#acciones_clave_firmavb">Acciones FirmaVB</a>
                 <a href="#nuevo_rumbo_compromiso">Nuevo Rumbo y Compromiso</a>
                 <a href="#foco_comercial_presupuesto">Foco Comercial y Presupuesto</a>
+                <a href="#comunicados_oficiales">Comunicados Oficiales</a>
                 <a href="#conclusion_firmavb">Conclusión FirmaVB</a>
             </div>
         </div>
@@ -585,6 +586,52 @@ DOCTYPE html>
             </p>
             <p class="text-lg leading-relaxed text-main">
                 El esfuerzo de venta es valioso solo cuando se traduce en **flujo de caja**. Continuaremos monitoreando de cerca el cumplimiento del presupuesto, asegurando que nuestras operaciones comerciales no solo generen ventas, sino que estas sean rentables y se conviertan en liquidez para la compañía.
+            </p>
+        </section>
+
+        <!-- Nueva Sección: Comunicados Oficiales -->
+        <section id="comunicados_oficiales" class="section-card">
+            <h2 class="section-title">Comunicados Oficiales de FirmaVB</h2>
+            <p class="text-lg leading-relaxed text-main mb-4">
+                A continuación, se presenta la información relevante que hemos comunicado al equipo, detallando el camino que estamos tomando, las tareas que vamos absorbiendo, las responsabilidades y el foco estratégico.
+            </p>
+
+            <h3 class="subsection-title">Comunicado Oficial: Aumento de Margen y Estabilidad Financiera</h3>
+            <p class="text-main mb-2">
+                Estimado Equipo de FirmaVB,
+                Me dirijo a ustedes hoy, no solo como Gerente General, sino como el capitán de este barco que con orgullo y gran esfuerzo hemos construido juntos. Quiero compartir una reflexión estratégica y los próximos pasos que daremos para asegurar un futuro próspero y fiel a nuestra esencia.
+            </p>
+            <p class="text-main mb-2">
+                Como saben, nuestra filosofía siempre ha sido navegar en océanos azules: encontrar y dominar aquellos nichos donde el valor y el margen son nuestros verdaderos motores. Nuestra mayor fortaleza es, y debe ser siempre, ver oportunidades donde otros solo ven dificultades.
+            </p>
+            <p class="text-main mb-2">
+                Recientemente, hemos dedicado una energía considerable a la categoría de artículos de oficina. Ha sido un mercado complejo y desafiante que, sin duda, nos ha puesto a prueba. Quiero ser claro: el esfuerzo ha sido tremendo y hemos logrado crecer en ventas en un terreno muy competitivo. Este viaje nos ha dejado aprendizajes invaluables en todas las áreas: ventas, compras, logística, administración y, muy importante, en cobranzas. Cada desafío ha sido una lección que hoy nos hace más fuertes y más sabios.
+            </p>
+            <p class="text-main mb-2">
+                Uno de esos grandes aprendizajes es la importancia de ser fieles a nuestra estrategia: cazar margen, buscar oportunidades únicas y materializarlas con agilidad. La pasada por esta categoría nos ha recordado que nuestro verdadero talento no está en competir en guerras de precios, sino en nuestra versatilidad y nuestra visión.
+            </p>
+            <p class="text-main mb-4">
+                Por todo esto, hemos decidido corregir el rumbo. No es un giro brusco, sino una evolución inteligente, un ajuste fino de nuestra estrategia aprovechando todo lo aprendido. Volveremos a nuestro origen: la comercialización de productos que nos den el margen que necesitamos para seguir creciendo de forma sana y sostenible.
+            </p>
+
+            <h3 class="subsection-title">Consolidación de Proveedores y Foco en Rentabilidad</h3>
+            <p class="text-main mb-2">
+                El primer gran paso en esta dirección lo daremos en la categoría de artículos de oficina. A partir de ahora, concentraremos todo nuestro esfuerzo estratégico y comercial trabajando exclusivamente con cinco proveedores claves y estratégicos de esta categoría como: Acco Brands, Torre, Adioffice, Dipisa y Prisa. Reduciremos nuestra base de 16 proveedores a solo estos 5 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
+            </p>
+            <p class="text-main mb-2">
+                Esta medida debe ir acompañada de un foco implacable en la rentabilidad. Por ello, es fundamental priorizar a los clientes que sí pagan. Nuestro equipo de Administración y Finanzas jugará un rol crucial aquí, manteniéndonos alerta y asegurando que cada venta que cerremos contribuya positivamente al resultado final. El esfuerzo de venta es valioso solo cuando se traduce en flujo de caja.
+            </p>
+            <p class="text-main mb-4">
+                Respecto a las demás categorías, realizaremos una revisión exhaustiva durante el mes de junio para asegurar que todas estén alineadas con nuestra estrategia central de rentabilidad y "océanos azules".
+            </p>
+
+            <p class="text-main italic">
+                Confío plenamente en la capacidad de este equipo. Nuestra habilidad para ver donde otros no ven es lo que nos define. Este ajuste de rumbo nos llevará a mejorar los resultados de la compañía y a navegar hacia aguas más prósperas. Agradezco el compromiso y la resiliencia de todos. Ahora, ¡a ejecutar con la excelencia de siempre!
+            </p>
+            <p class="text-main text-right mt-4">
+                Atentamente,<br>
+                Enrique E. Varas B. | FirmaVB<br>
+                Gerente General
             </p>
         </section>
 
