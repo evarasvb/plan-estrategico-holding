@@ -589,14 +589,14 @@
             </p>
         </section>
 
-        <!-- Nueva Sección: Comunicados Oficiales -->
+        <!-- Sección: Comunicados Oficiales -->
         <section id="comunicados_oficiales" class="section-card">
             <h2 class="section-title">Comunicados Oficiales de FirmaVB</h2>
             <p class="text-lg leading-relaxed text-main mb-4">
                 A continuación, se presenta la información relevante que hemos comunicado al equipo, detallando el camino que estamos tomando, las tareas que vamos absorbiendo, las responsabilidades y el foco estratégico.
             </p>
 
-            <h3 class="subsection-title">Comunicado Oficial: Aumento de Margen y Estabilidad Financiera</h3>
+            <h3 class="subsection-title">Comunicado Oficial: Aumento de Margen y Estabilidad Financiera (Parte 1)</h3>
             <p class="text-main mb-2">
                 Estimado Equipo de FirmaVB,
                 Me dirijo a ustedes hoy, no solo como Gerente General, sino como el capitán de este barco que con orgullo y gran esfuerzo hemos construido juntos. Quiero compartir una reflexión estratégica y los próximos pasos que daremos para asegurar un futuro próspero y fiel a nuestra esencia.
@@ -614,7 +614,7 @@
                 Por todo esto, hemos decidido corregir el rumbo. No es un giro brusco, sino una evolución inteligente, un ajuste fino de nuestra estrategia aprovechando todo lo aprendido. Volveremos a nuestro origen: la comercialización de productos que nos den el margen que necesitamos para seguir creciendo de forma sana y sostenible.
             </p>
 
-            <h3 class="subsection-title">Consolidación de Proveedores y Foco en Rentabilidad</h3>
+            <h3 class="subsection-title">Consolidación de Proveedores y Foco en Rentabilidad (Continuación)</h3>
             <p class="text-main mb-2">
                 El primer gran paso en esta dirección lo daremos en la categoría de artículos de oficina. A partir de ahora, concentraremos todo nuestro esfuerzo estratégico y comercial trabajando exclusivamente con cinco proveedores claves y estratégicos de esta categoría como: Acco Brands, Torre, Adioffice, Dipisa y Prisa. Reduciremos nuestra base de 16 proveedores a solo estos 5 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
             </p>
@@ -627,6 +627,52 @@
 
             <p class="text-main italic">
                 Confío plenamente en la capacidad de este equipo. Nuestra habilidad para ver donde otros no ven es lo que nos define. Este ajuste de rumbo nos llevará a mejorar los resultados de la compañía y a navegar hacia aguas más prósperas. Agradezco el compromiso y la resiliencia de todos. Ahora, ¡a ejecutar con la excelencia de siempre!
+            </p>
+            <p class="text-main text-right mt-4">
+                Atentamente,<br>
+                Enrique E. Varas B. | FirmaVB<br>
+                Gerente General
+            </p>
+
+            <hr class="my-8 border-t-2 border-gray-200"> <!-- Separador entre comunicados -->
+
+            <h3 class="subsection-title">Comunicado Oficial: Mirar donde otros no ven... Parte 2 - Mobiliario</h3>
+            <p class="text-main mb-2">
+                Estimado Equipo de FirmaVB,
+                Dando continuidad a nuestra visión estratégica de navegar en "océanos azules" y asegurar un futuro próspero para FirmaVB, hoy quiero enfocar nuestra atención en la categoría de **Mobiliario**. Esta categoría, que abarca oficina, mobiliario escolar y ergonómico, es crucial para nuestro crecimiento y rentabilidad, pero presenta desafíos específicos que abordaremos con determinación y estrategia.
+            </p>
+            <p class="text-main mb-2">
+                Hemos identificado que, si bien el potencial de ventas es significativo, la operación actual en mobiliario está generando una demanda elevada de capital de trabajo y una excesiva dependencia del factoring, impactando nuestro flujo de caja. Esto se debe principalmente a las condiciones de crédito limitadas con algunos proveedores y a la falta de profundidad en la relación con otros que podrían ofrecernos mayor estabilidad en inventario y condiciones favorables.
+            </p>
+
+            <h4 class="sub-heading">Nuestra estrategia para la categoría de mobiliario se centrará en los siguientes pilares fundamentales:</h4>
+            <ul class="list-disc list-inside text-main mb-4">
+                <li>
+                    <strong>1. Optimización del Flujo de Caja como Prioridad Central:</strong> Corregiremos el rumbo para reducir el consumo de capital de trabajo. Esto significa gestionar activamente las condiciones de crédito con nuestros proveedores y limitar operaciones que nos obliguen a dar "vueltas" excesivas a líneas de crédito acotadas o a comprar al contado, priorizando siempre la salud de nuestro flujo de caja.
+                </li>
+                <li>
+                    <strong>2. Consolidación y Profesionalización con Proveedores Clave:</strong> Profundizaremos y estandarizaremos la relación con nuestros socios estratégicos. Esto incluye a:
+                    <ul class="list-circle list-inside ml-4 text-sm mt-2">
+                        <li><strong>Acco Brands:</strong> Actor fundamental con 90 días de crédito y cupo ilimitado, proveedor de foco para Ergonomía.</li>
+                        <li><strong>Full Muebles:</strong> Con 45 días de crédito y cupo ilimitado. Vigilancia en compras al contado.</li>
+                        <li><strong>HP Muebles:</strong> Confirmando sus 60 días de crédito.</li>
+                        <li><strong>Ofix Chile:</strong> Con sus 30 días de crédito.</li>
+                        <li><strong>TokStok:</strong> Línea de crédito de $10.000.000, acotado a compras ágiles de bajo volumen (aprox. 65 sillas mensuales).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>3. Búsqueda Activa de un Proveedor Pivote (Tipo Sodimac):</strong> Necesidad imperativa de un proveedor con amplitud de stock, flexibilidad y condiciones de crédito que complementen nuestra oferta actual. Nuestra apuesta estratégica es Sodimac.
+                </li>
+                <li>
+                    <strong>4. Enfoque en el Mix de Productos para Maximizar el Margen:</strong> Para alcanzar nuestro margen objetivo del 20-22% en esta categoría, priorizaremos la venta de un mix de productos complementarios (ej. silla, kardex y mobiliario para elevar rentabilidad a 25%).
+                </li>
+            </ul>
+
+            <p class="text-main mb-4">
+                Este ajuste de rumbo no es una desviación, sino una evolución inteligente que capitaliza nuestros aprendizajes y nos permite ser fieles a nuestra filosofía de "cazar margen" y generar flujo de caja.
+            </p>
+            <p class="text-main italic">
+                Agradezco de antemano el compromiso de cada uno en la ejecución de esta estrategia. La colaboración entre Ventas, Compras y Administración será, más que nunca, fundamental para garantizar que cada venta contribuya positivamente a nuestra estabilidad financiera y a nuestra propuesta de valor.
             </p>
             <p class="text-main text-right mt-4">
                 Atentamente,<br>
