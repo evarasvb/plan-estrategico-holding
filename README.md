@@ -1,779 +1,616 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía: Análisis Estratégico del Mercado y Foco en Cliente del Holding (v2)</title>
+    <title>Plan Estratégico y Tareas Asignadas Holding y FirmaVB</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- 
-        Resumen del Plan de Narrativa y Estructura (v2):
-        La infografía presentará el análisis estratégico del mercado interno y el enfoque en el cliente de "Holding Estratégico S.A.", basado en el informe 'estrategia_foco_clientes_presentacion_v1' y 'estrategia_rentabilidad_caja_v2'.
-        Secciones:
-        1. Título Principal.
-        2. Contexto del Holding y Desafíos (Datos Reales).
-        3. Objetivos Estratégicos del Holding.
-        4. Metodología de Segmentación de Clientes.
-        5. Hallazgos Clave: Radiografía del Portafolio (Márgenes reales de empresas, gráficos de distribución y Venta/Margen como "Modelo Ilustrativo").
-        6. Estrategias Clave por Segmento de Clientes (Matriz y Acciones Detalladas).
-        7. Plan de Trabajo Detallado (Actividades, Responsables, Plazos).
-        8. Carta Gantt Visual del Plan de Trabajo.
-        9. Indicadores Clave de Desempeño (KPIs).
-        10. Impacto Esperado y Próximos Pasos.
-
-        Confirmación de Ausencia de SVG y Mermaid JS:
-        NI Mermaid JS NI SVG fueron utilizados en la generación de esta infografía. 
-        Todas las visualizaciones son generadas mediante Chart.js (Canvas) o HTML/CSS con Tailwind.
-    -->
-    <!-- 
-        Selección de Visualizaciones (Resumen v2):
-        - Contexto (Pérdida, Márgenes Reales): Single Big Number (HTML/Tailwind). Goal: Inform. No SVG.
-        - Objetivos Estratégicos: Lista con iconos (HTML/Tailwind Unicode). Goal: Inform. No SVG.
-        - Metodología Segmentación: Flow Chart (HTML/CSS/Tailwind). Goal: Organize. No SVG.
-        - Hallazgos Clave (Márgenes Empresas Reales): Bar Chart (Chart.js). Goal: Compare. No SVG.
-        - Hallazgos Clave (Distribución Clientes, Venta/Margen - Modelo Ilustrativo): Donut Chart, Grouped Bar Chart (Chart.js). Goal: Compare, Inform. No SVG.
-        - Matriz Estratégica: HTML Table (Tailwind). Goal: Organize. No SVG.
-        - Plan de Trabajo: HTML Table (Tailwind). Goal: Organize. No SVG.
-        - Carta Gantt: HTML/CSS con Tailwind (simulación visual). Goal: Organize. No SVG.
-        - KPIs: Lista con iconos (HTML/Tailwind Unicode). Goal: Inform. No SVG.
-        - Impacto Esperado: Single Big Number (HTML/Tailwind). Goal: Inform. No SVG.
-
-        Paleta de Colores Seleccionada: "Energetic & Playful"
-        - Coral: #FF6B6B
-        - Sunglow Yellow: #FFD166
-        - Caribbean Green: #06D6A0
-        - Blue Munsell: #118AB2
-        - Midnight Green (Dark Blue): #073B4C
-    -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <!-- Fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* Paleta de Colores Seleccionada: "Energetic & Playful" */
+        /* - Coral: #FF6B6B */
+        /* - Sunglow Yellow: #FFD166 */
+        /* - Caribbean Green: #06D6A0 */
+        /* - Blue Munsell: #118AB2 */
+        /* - Midnight Green (Dark Blue): #073B4C */
+        /* - Backgrounds: #F8FAFC (slate-50), #FFFFFF (white) */
+        /* - Textos: #0F172A (slate-900), #334155 (slate-700) */
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F3F4F6; /* Tailwind gray-100 */
+            background-color: #F8FAFC; /* slate-50 */
+            color: #0F172A; /* slate-900 */
         }
+
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px; 
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px; 
-            max-height: 400px;
+            height: 300px;
+            max-height: 350px;
         }
-        @media (min-width: 768px) { /* md breakpoint */
+        @media (min-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 320px;
             }
         }
-        @media (min-width: 1024px) { /* lg breakpoint */
-            .chart-container {
-                height: 400px;
-            }
-        }
-        .stat-card {
+
+        /* Estilos para las tarjetas de contenido (existentes y nuevos) */
+        .content-card, .section-card { /* Combinado para aplicar el mismo estilo */
             background-color: white;
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg más sutil */
             padding: 1.5rem; /* p-6 */
             margin-bottom: 1.5rem; /* mb-6 */
-            color: #073B4C; /* Midnight Green */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición para hover */
         }
-        .stat-title {
-            font-size: 1.125rem; /* text-lg */
-            font-weight: 600; /* font-semibold */
-            color: #118AB2; /* Blue Munsell */
-            margin-bottom: 0.5rem;
+        .section-card:hover { /* Solo para las nuevas secciones, para un efecto sutil */
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .stat-value {
-            font-size: 2.25rem; /* text-4xl */
-            font-weight: 700; /* font-bold */
-            color: #06D6A0; /* Caribbean Green */
-        }
-        .section-title {
+
+        /* Estilos para títulos de sección (existentes y nuevos) */
+        .section-heading, .section-title { /* Combinado para aplicar el mismo estilo */
             font-size: 1.875rem; /* text-3xl */
-            font-weight: 700;
-            color: #073B4C; /* Midnight Green */
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
+            font-weight: 700; /* font-bold */
+            color: #073B4C; /* Midnight Green (Dark Blue) */
+            margin-bottom: 1.25rem; /* mb-5 */
+            padding-bottom: 0.5rem; /* pb-2 */
             border-bottom: 2px solid #06D6A0; /* Caribbean Green */
+            text-align: center;
         }
-        .card-title {
-            font-size: 1.5rem; /* text-2xl */
+        .section-title { /* Ajuste para los títulos de las nuevas secciones */
+            display: inline-block; /* Para que el borde inferior se ajuste al texto */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilos para subtítulos (existentes y nuevos) */
+        .sub-heading, .subsection-title { /* Combinado para aplicar el mismo estilo */
+            font-size: 1.25rem; /* text-xl */
             font-weight: 600; /* font-semibold */
             color: #118AB2; /* Blue Munsell */
-            margin-bottom:1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
         }
-        .text-content {
-            font-size: 1rem; /* text-base */
+
+        /* Estilos para texto principal (existentes y nuevos) */
+        .text-main {
+            font-size: 0.9375rem; /* text-base- (slightly smaller) */
             line-height: 1.6;
-            color: #374151; /* Tailwind gray-700 */
+            color: #334155; /* slate-700 */
+            margin-bottom: 0.75rem;
         }
-        .flowchart-step {
-            background-color: #FFD166; /* Sunglow Yellow */
-            color: #073B4C;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            font-weight: 600;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .flowchart-arrow {
-            font-size: 2rem;
-            color: #118AB2; /* Blue Munsell */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .kpi-list li {
-            background-color: #E0F2FE; /* Tailwind sky-100 like */
-            padding: 0.75rem;
-            border-radius: 0.375rem; /* rounded-md */
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            color: #073B4C;
-        }
-        .kpi-list li::before {
-            content: '📊';
-            margin-right: 0.75rem;
-            font-size: 1.25rem;
-        }
-        #sticky-nav {
+
+        .highlight { color: #06D6A0; font-weight: 600; } /* Caribbean Green */
+        .critical-highlight { color: #FF6B6B; font-weight: 600; } /* Coral */
+
+        /* Navegación principal */
+        #main-nav {
             position: sticky;
             top: 0;
             z-index: 50;
-            background-color: rgba(7, 59, 76, 0.9); 
+            background-color: rgba(7, 59, 76, 0.97); /* Midnight Green con transparencia */
             backdrop-filter: blur(5px);
             padding: 0.5rem 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        #sticky-nav a {
-            color: #FFD166; 
+        #main-nav a {
+            color: #FFD166; /* Sunglow Yellow */
             padding: 0.5rem 1rem;
             margin: 0 0.25rem;
             border-radius: 0.375rem;
             font-weight: 600;
+            font-size: 0.875rem;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        #sticky-nav a:hover, #sticky-nav a.active {
-            background-color: #FFD166; 
-            color: #073B4C; 
+        #main-nav a:hover, #main-nav a.active {
+            background-color: #FFD166; /* Sunglow Yellow */
+            color: #073B4C; /* Midnight Green */
         }
-        .gantt-chart {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.875rem;
+
+        /* Estilos para la tabla Gantt */
+        .gantt-simplified {
+            font-size: 0.8rem;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .gantt-row {
+        .gantt-row-simplified {
             display: grid;
-            grid-template-columns: 150px repeat(6, 1fr); /* Task name + 6 time units (e.g. weeks/months) */
+            grid-template-columns: 180px repeat(6, 1fr); /* Task name + 6 time units (Meses) */
             align-items: center;
-            gap: 0.25rem;
-            padding: 0.25rem 0;
-            border-bottom: 1px solid #E5E7EB; /* gray-200 */
+            gap: 2px;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #E2E8F0; /* slate-200 */
         }
-        .gantt-task-name {
+        .gantt-row-simplified:last-child { border-bottom: none; }
+        .gantt-task-name-simplified {
             font-weight: 600;
+            color: #0F172A;
             padding-right: 0.5rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .gantt-bar-container {
+        .gantt-bar-container-simplified {
             position: relative;
-            height: 20px; /* Altura de la barra */
+            height: 20px;
+            grid-column-start: var(--start-col);
+            grid-column-end: span var(--span-col);
         }
-        .gantt-bar {
+        .gantt-bar-simplified {
             position: absolute;
             height: 100%;
             background-color: #06D6A0; /* Caribbean Green */
             border-radius: 0.25rem;
-            opacity: 0.8;
+            opacity: 0.9;
         }
-        .gantt-milestone {
-            position: absolute;
-            width: 20px; /* Ancho del hito */
-            height: 20px; /* Altura del hito */
+        .gantt-bar-simplified.milestone {
             background-color: #FF6B6B; /* Coral */
-            border-radius: 50%; /* Círculo */
-            transform: translateX(-50%); /* Centrar el hito */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
+            width: 10px !important; /* For milestones */
+            left: calc(var(--milestone-pos) - 5px); /* Center milestone */
+        }
+        .gantt-header-simplified {
+            font-weight: 600;
+            text-align: center;
+            color: #118AB2; /* Blue Munsell */
+            padding-bottom: 0.5rem;
             font-size: 0.75rem;
         }
-        .gantt-header {
-            font-weight: bold;
-            text-align: center;
-            color: #073B4C;
-            padding-bottom: 0.5rem;
+        .gantt-timeline-header-simplified {
+            display: grid;
+            grid-template-columns: 180px repeat(6, 1fr);
+            gap: 2px;
         }
 
+        /* Estilos para tablas generales (plan de trabajo) */
+        .table-plan {
+            min-width: 100%;
+            border-collapse: collapse;
+        }
+        .table-plan th, .table-plan td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #E2E8F0; /* slate-200 */
+            font-size: 0.875rem;
+        }
+        .table-plan thead th {
+            background-color: #073B4C; /* Midnight Green */
+            color: #FFD166; /* Sunglow Yellow */
+            font-weight: 600;
+        }
+        .table-plan tbody tr:hover {
+            background-color: #F1F5F9; /* slate-100 */
+        }
+
+        /* Estilos específicos para los nuevos pilares y acciones clave */
+        .bg-blue-50-custom { /* Para los pilares */
+            background-color: #E6F4FF; /* Un azul muy claro, cercano al Blue Munsell */
+        }
+        .text-blue-600-custom { /* Para el texto de los pilares */
+            color: #118AB2; /* Blue Munsell */
+        }
+        .bg-green-50-custom { /* Para Comercial */
+            background-color: #E6FFF2; /* Un verde muy claro, cercano al Caribbean Green */
+        }
+        .text-green-700-custom { /* Para texto Comercial */
+            color: #06D6A0; /* Caribbean Green */
+        }
+        .bg-yellow-50-custom { /* Para Compras */
+            background-color: #FFF9E6; /* Un amarillo muy claro, cercano al Sunglow Yellow */
+        }
+        .text-yellow-700-custom { /* Para texto Compras */
+            color: #FFD166; /* Sunglow Yellow */
+        }
+        .bg-red-50-custom { /* Para Administración y Finanzas */
+            background-color: #FFE6E6; /* Un rojo muy claro, cercano al Coral */
+        }
+        .text-red-700-custom { /* Para texto Administración y Finanzas */
+            color: #FF6B6B; /* Coral */
+        }
+        .bg-purple-50-custom { /* Para Postventa y Logística, usando un tono de azul */
+            background-color: #E6F4FF; /* Reutilizando el azul claro */
+        }
+        .text-purple-700-custom { /* Para texto Postventa y Logística */
+            color: #118AB2; /* Blue Munsell */
+        }
+        /* Viñetas personalizadas para las nuevas listas */
+        .new-list-item::before {
+            content: '•';
+            color: #06D6A0; /* Caribbean Green */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1.5em;
+            position: absolute;
+            left: 0;
+        }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="antialiased">
 
-    <nav id="sticky-nav" class="hidden md:block">
+    <!-- Navegación Principal -->
+    <nav id="main-nav" class="hidden md:block">
         <div class="container mx-auto px-4">
             <div class="flex justify-center items-center flex-wrap">
-                <a href="#contexto">Contexto</a>
-                <a href="#objetivos">Objetivos</a>
-                <a href="#metodologia">Metodología</a>
-                <a href="#hallazgos">Hallazgos</a>
-                <a href="#estrategias">Estrategias</a>
-                <a href="#plan_trabajo">Plan Trabajo</a>
-                <a href="#gantt">Gantt</a>
-                <a href="#kpis">KPIs</a>
-                <a href="#impacto">Impacto</a>
+                <a href="#diagnostico_simple">Diagnóstico Holding</a>
+                <a href="#objetivos_simple">Objetivos Holding</a>
+                <a href="#estrategia_clientes_simple">Estrategia Clientes Holding</a>
+                <a href="#plan_trabajo_simple">Plan de Trabajo Holding</a>
+                <a href="#gantt_simple">Gantt Holding</a>
+                <a href="#kpis_simple">KPIs Holding</a>
+                <a href="#introduccion_firmavb">Introducción FirmaVB</a>
+                <a href="#fundamentos_firmavb">Fundamentos FirmaVB</a>
+                <a href="#categorias_firmavb">Categorías FirmaVB</a>
+                <a href="#nivel_servicio_firmavb">Servicio FirmaVB</a>
+                <a href="#acciones_clave_firmavb">Acciones FirmaVB</a>
+                <a href="#conclusion_firmavb">Conclusión FirmaVB</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-gradient-to-r from-[#118AB2] to-[#06D6A0] py-12 text-white text-center">
+    <!-- Encabezado Principal (Existente) -->
+    <header class="bg-gradient-to-r from-[#073B4C] to-[#118AB2] py-10 text-white text-center">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Análisis Estratégico del Mercado y Foco en Cliente</h1>
-            <p class="text-xl md:text-2xl font-light">Holding Estratégico S.A. - Visión 2025 (v2)</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Plan Estratégico Consolidado</h1>
+            <p class="text-lg md:text-xl font-light">Foco en Rentabilidad, Clientes Clave y Servicio Excepcional</p>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-6">
 
-        <section id="contexto" class="mb-12">
-            <h2 class="section-title text-center">Contexto y Desafíos del Mercado Interno</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                El Holding enfrenta un entorno desafiante que requiere una reestructuración estratégica. La rentabilidad actual, basada en datos de Ene-Abr 2025, y la presión sobre el flujo de caja son preocupaciones centrales, demandando un enfoque más inteligente y selectivo en nuestras operaciones y relaciones comerciales.
+        <!-- Sección: Diagnóstico y Desafíos Clave (Existente) -->
+        <section id="diagnostico_simple" class="mb-8 content-card">
+            <h2 class="section-heading">Diagnóstico y Desafíos Clave (Holding)</h2>
+            <p class="text-main text-center mb-6 max-w-2xl mx-auto">
+                El análisis Ene-Abr 2025 muestra la necesidad urgente de un cambio estratégico para mejorar la rentabilidad y eficiencia.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="stat-card text-center">
-                    <h3 class="stat-title">Resultado Operacional Estimado</h3>
-                    <p class="stat-value text-[#FF6B6B]">- $7.6M</p>
-                    <p class="text-sm text-gray-500">(Diagnóstico Ene-Abr 2025)</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+                <div class="p-4 bg-red-50 rounded-md">
+                    <p class="text-sm text-red-700 font-semibold">Resultado Operacional</p>
+                    <p class="text-2xl font-bold text-red-600">- $7.6M</p>
                 </div>
-                <div class="stat-card text-center">
-                    <h3 class="stat-title">Margen Bruto Promedio Holding</h3>
-                    <p class="stat-value text-[#FF6B6B]">13.31%</p>
-                    <p class="text-sm text-gray-500">Meta mínima: 18%</p>
+                <div class="p-4 bg-yellow-50 rounded-md">
+                    <p class="text-sm text-yellow-700 font-semibold">Margen Bruto Holding (Actual)</p>
+                    <p class="text-2xl font-bold text-yellow-600">13.31%</p>
                 </div>
-                <div class="stat-card text-center md:col-span-2 lg:col-span-1">
-                    <h3 class="stat-title">Principales Desafíos Adicionales</h3>
-                    <ul class="text-left text-content list-disc list-inside mt-2 space-y-1">
-                        <li>Presión sobre Flujo de Caja (alta dependencia del factoring).</li>
-                        <li>Ciclos de cobro extensos.</li>
-                        <li>Gestión de Inventario ("embarrada en bodega").</li>
-                        <li>Márgenes insuficientes en empresas clave (Cloudbook 13.02%, Mercado Público 10.29%). Grumpy destaca con 22.39%.</li>
+                <div class="sm:col-span-2 p-4 bg-blue-50 rounded-md mt-2">
+                    <p class="text-sm text-blue-700 font-semibold mb-1">Otros Desafíos Importantes:</p>
+                    <ul class="text-xs text-blue-600 list-disc list-inside text-left space-y-0.5">
+                        <li>Alta dependencia del factoring.</li>
+                        <li>Márgenes bajos: Cloudbook (13.02%), Comercializadora MP (10.29%). Grumpy destaca (22.39%).</li>
+                        <li>Ineficiencias en inventario.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="objetivos" class="mb-12 stat-card">
-            <h2 class="section-title text-center">Objetivos Estratégicos (Próximos 6-12 Meses)</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                Para revertir la situación actual y construir un futuro sostenible, hemos definido objetivos claros y medibles. El foco en clientes rentables y buenos pagadores es esencial para alcanzar estas metas.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
-                <div class="p-4 bg-[#E0F2FE] rounded-lg shadow">
-                    <div class="text-4xl mb-2">🎯</div>
-                    <h3 class="font-semibold text-lg text-[#073B4C]">Rentabilidad</h3>
-                    <p class="text-[#118AB2]">Margen Bruto Consolidado: <strong>18% mínimo</strong></p>
+        <!-- Sección: Objetivos Estratégicos Principales (Existente) -->
+        <section id="objetivos_simple" class="mb-8 content-card">
+            <h2 class="section-heading">Objetivos Estratégicos Principales (6-12 Meses) (Holding)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-main">
+                <div class="flex items-center p-3 bg-slate-50 rounded-md">
+                    <span class="text-2xl mr-3">🎯</span>
+                    <div><strong>Rentabilidad:</strong> Margen Bruto Consolidado <strong class="highlight">>18%</strong>.</div>
                 </div>
-                <div class="p-4 bg-[#E0F2FE] rounded-lg shadow">
-                    <div class="text-4xl mb-2">📈</div>
-                    <h3 class="font-semibold text-lg text-[#073B4C]">Resultado Operacional</h3>
-                    <p class="text-[#118AB2]">Punto de equilibrio en 6 meses, utilidad en 12 meses.</p>
+                <div class="flex items-center p-3 bg-slate-50 rounded-md">
+                    <span class="text-2xl mr-3">📈</span>
+                    <div><strong>Resultado Operacional:</strong> Punto de equilibrio (6m), utilidad (12m).</div>
                 </div>
-                <div class="p-4 bg-[#E0F2FE] rounded-lg shadow">
-                    <div class="text-4xl mb-2">💰</div>
-                    <h3 class="font-semibold text-lg text-[#073B4C]">Flujo de Caja</h3>
-                    <p class="text-[#118AB2]">Reducir dependencia factoring: <strong>30-40%</strong></p>
+                <div class="flex items-center p-3 bg-slate-50 rounded-md">
+                    <span class="text-2xl mr-3">💰</span>
+                    <div><strong>Flujo de Caja:</strong> Reducir dependencia factoring 30-40%.</div>
                 </div>
-                <div class="p-4 bg-[#E0F2FE] rounded-lg shadow">
-                     <div class="text-4xl mb-2">📦</div>
-                    <h3 class="font-semibold text-lg text-[#073B4C]">Inventario</h3>
-                    <p class="text-[#118AB2]">Control en nuevo ERP (6m), Reducir sobrante <strong>70%</strong> (9m).</p>
+                <div class="flex items-center p-3 bg-slate-50 rounded-md">
+                    <span class="text-2xl mr-3">📦</span>
+                    <div><strong>Inventario:</strong> Control con nuevo ERP (Jorge L., 6m), reducir sobrante 70% (9m).</div>
                 </div>
-                <div class="p-4 bg-[#E0F2FE] rounded-lg shadow sm:col-span-2 lg:col-span-1">
-                    <div class="text-4xl mb-2">🤖</div>
-                    <h3 class="font-semibold text-lg text-[#073B4C]">Robot Postulaciones</h3>
-                    <p class="text-[#118AB2]">Rentabilidad neta positiva en 6-9 meses.</p>
+                <div class="flex items-center p-3 bg-slate-50 rounded-md md:col-span-2">
+                    <span class="text-2xl mr-3">🤖</span>
+                    <div><strong>Robot Postulaciones (Mary):</strong> Rentabilidad neta positiva (6-9m), enfocando en licitaciones y categorías rentables.</div>
                 </div>
             </div>
         </section>
 
-        <section id="metodologia" class="mb-12">
-            <h2 class="section-title text-center">Entendiendo Nuestro "Mercado" de Clientes</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                Para dirigir nuestros esfuerzos eficazmente, implementamos un proceso de análisis y segmentación que nos permite identificar y priorizar a nuestros clientes estratégicos.
-            </p>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="card-title text-center">Proceso de Análisis y Segmentación de Clientes</h3>
-                <div class="grid grid-cols-1 md:grid-cols-7 items-center gap-4 text-sm md:text-base">
-                    <div class="flowchart-step md:col-span-2">1. Análisis de Margen Bruto por Cliente y Categoría</div>
-                    <div class="flowchart-arrow hidden md:block">➡️</div>
-                    <div class="flowchart-step md:col-span-2">2. Análisis de Comportamiento de Pago (Info. Juanita)</div>
-                     <div class="flowchart-arrow md:hidden text-center text-3xl transform rotate-90">⬇️</div>
-                    <div class="flowchart-arrow hidden md:block">➡️</div>
-                     <div class="flowchart-step md:col-span-2 md:mt-0 mt-4">3. Cruce de Datos: Matriz Margen vs. Condición de Pago</div>
-                     <div class="flowchart-arrow md:hidden text-center text-3xl transform rotate-90">⬇️</div>
-                </div>
-                 <div class="grid grid-cols-1 md:grid-cols-7 items-center gap-4 text-sm md:text-base mt-4 md:mt-0">
-                    <div class="md:col-start-4 flowchart-arrow hidden md:block transform rotate-90">⬇️</div>
-                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-7 items-center gap-4 text-sm md:text-base mt-0 md:mt-4">
-                     <div class="md:col-start-3 md:col-span-3 flowchart-step">4. Definición de Segmentos Estratégicos y Planes de Acción</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="hallazgos" class="mb-12">
-            <h2 class="section-title text-center">Hallazgos Clave: Radiografía de Nuestro Portafolio</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                El análisis revela patrones importantes en nuestro portafolio de clientes. Los márgenes de las empresas del holding son datos concretos, mientras que la distribución de clientes y su impacto en ventas/margen se presentan como un modelo ilustrativo del análisis a profundizar.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                 <div class="stat-card md:col-span-2">
-                    <h3 class="card-title text-center">Márgenes Brutos (%) Reales por Empresas del Holding y Metas</h3>
-                    <p class="text-content mb-4 text-sm text-center">Comparativa de márgenes observados en las empresas del holding y la meta estratégica.</p>
-                    <div class="chart-container h-[350px] md:h-[400px] max-w-3xl">
-                        <canvas id="margenesEmpresasChart"></canvas>
-                    </div>
-                     <p class="text-xs text-gray-500 mt-2 text-center">Nota: Se requiere análisis detallado para obtener márgenes consolidados por categoría de producto (Art. Oficina, Mobiliario, Desechables). Papelería Prisa (Cloudbook) presenta desafíos con márgenes del 4-9%. Mobiliario Humano tiene una meta >25%.</p>
-                </div>
-                <div class="stat-card">
-                    <h3 class="card-title text-center">Distribución de Clientes por Segmento Estratégico (Modelo Ilustrativo)</h3>
-                    <p class="text-content mb-4 text-sm text-center">Este gráfico ilustra cómo se podrían distribuir los clientes una vez completado el análisis detallado según la matriz de priorización. Los porcentajes son ejemplificativos.</p>
-                    <div class="chart-container h-[350px] md:h-[400px]">
-                        <canvas id="distribucionClientesChart"></canvas>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <h3 class="card-title text-center">Impacto Venta vs. Margen por Segmento (Modelo Ilustrativo)</h3>
-                     <p class="text-content mb-4 text-sm text-center">Comparativa ilustrativa del posible aporte a ventas y margen de diferentes grupos de clientes. Cifras ejemplificativas pendientes de análisis detallado.</p>
-                    <div class="chart-container h-[350px] md:h-[400px]">
-                        <canvas id="ventaMargenChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="estrategias" class="mb-12 stat-card">
-            <h2 class="section-title text-center">Estrategias Clave por Segmento de Clientes</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                Basados en la matriz de Margen Bruto vs. Condición de Pago, definimos estrategias específicas para optimizar la rentabilidad y el flujo de caja.
-            </p>
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white border border-[#118AB2]">
-                    <thead class="bg-[#073B4C] text-white">
+        <!-- Sección: Estrategia de Foco en Clientes (Existente) -->
+        <section id="estrategia_clientes_simple" class="mb-8 content-card">
+            <h2 class="section-heading">Estrategia de Foco en Clientes (Resumen) (Holding)</h2>
+            <p class="text-main mb-4">Clasificaremos a los clientes según su margen y condición de pago para aplicar estrategias diferenciadas:</p>
+            <div class="overflow-x-auto shadow rounded-md">
+                <table class="min-w-full bg-white text-xs">
+                    <thead>
                         <tr>
-                            <th class="py-3 px-4 border-b border-r border-gray-600">Margen Bruto / Condición de Pago</th>
-                            <th class="py-3 px-4 border-b border-r border-gray-600 text-[#06D6A0]">Buen Pagador</th>
-                            <th class="py-3 px-4 border-b border-r border-gray-600 text-[#FFD166]">Pagador Promedio</th>
-                            <th class="py-3 px-4 border-b border-gray-600 text-[#FF6B6B]">Mal Pagador</th>
+                            <th class="p-2">Margen / Pago</th>
+                            <th class="p-2 text-[#06D6A0]">Buen Pagador</th>
+                            <th class="p-2 text-[#FFD166]">Pagador Promedio</th>
+                            <th class="p-2 text-[#FF6B6B]">Mal Pagador</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center">
-                            <td class="py-3 px-4 border-b border-r font-semibold bg-[#E0F2FE]">Alto Margen</td>
-                            <td class="py-3 px-4 border-b border-r bg-green-100 text-green-800">⭐ **FOCO PRIORITARIO 1:** Maximizar y Fidelizar. Cross/Up-selling, contratos.</td>
-                            <td class="py-3 px-4 border-b border-r bg-yellow-100 text-yellow-800">**FOCO PRIORITARIO 2:** Mejorar Pago. Incentivos pronto pago.</td>
-                            <td class="py-3 px-4 border-b bg-red-100 text-red-800">**EVALUAR RIESGO/BENEFICIO:** Negociar pago anticipado. ¿Compensa?</td>
+                        <tr class="text-center border-b">
+                            <td class="p-2 font-semibold bg-slate-50">Alto Margen</td>
+                            <td class="p-2 bg-green-50">⭐ FOCO 1: Fidelizar</td>
+                            <td class="p-2 bg-yellow-50">🎯 FOCO 2: Mejorar Pago</td>
+                            <td class="p-2 bg-red-50">🔍 EVALUAR</td>
+                        </tr>
+                        <tr class="text-center border-b">
+                            <td class="p-2 font-semibold bg-slate-50">Margen Medio</td>
+                            <td class="p-2 bg-green-50">📈 OPTIMIZAR MARGEN</td>
+                            <td class="p-2 bg-yellow-50">⚖️ MANTENER/OPTIMIZAR</td>
+                            <td class="p-2 bg-red-50">🚨 ALERTA</td>
                         </tr>
                         <tr class="text-center">
-                            <td class="py-3 px-4 border-b border-r font-semibold bg-[#E0F2FE]">Margen Medio</td>
-                            <td class="py-3 px-4 border-b border-r bg-green-50 text-green-700">**FOCO SECUNDARIO:** Incrementar Margen. Optimizar mix, costos.</td>
-                            <td class="py-3 px-4 border-b border-r bg-yellow-50 text-yellow-700">**MANTENER Y OPTIMIZAR:** Mejorar ambos gradualmente.</td>
-                            <td class="py-3 px-4 border-b bg-red-50 text-red-700">**ALERTA MÁXIMA:** Mejorar pago URGENTE, luego margen. Alto riesgo.</td>
-                        </tr>
-                        <tr class="text-center">
-                            <td class="py-3 px-4 border-r font-semibold bg-[#E0F2FE]">Bajo Margen</td>
-                            <td class="py-3 px-4 border-r bg-orange-100 text-orange-800">**OPTIMIZAR MARGEN URGENTE:** Renegociar. Si no, reevaluar.</td>
-                            <td class="py-3 px-4 border-r bg-gray-100 text-gray-700">**BAJA PRIORIDAD / DESCONTINUAR GRADUAL**</td>
-                            <td class="py-3 px-4 bg-red-200 text-red-900">🚫 **NO TRABAJAR / PLAN DE SALIDA:** Drenaje de recursos.</td>
+                            <td class="p-2 font-semibold bg-slate-50">Bajo Margen</td>
+                            <td class="p-2 bg-orange-50">🛠️ OPTIMIZAR URGENTE</td>
+                            <td class="p-2 bg-gray-100">📉 BAJA PRIORIDAD</td>
+                            <td class="p-2 bg-red-100">🚫 NO TRABAJAR</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-             <p class="text-content mt-6">
-                <strong>Acciones Transversales Clave:</strong>
-                <ul class="list-disc pl-5 mt-2 text-sm space-y-1">
-                    <li><strong>Equipo Comercial (Mary, Paz, Erick, Tomás):</strong> Aplicar estrategias segmentadas, identificar oportunidades de cross/up-selling en clientes foco, mejorar condiciones de pago negociadas, y retroalimentar sobre la efectividad de las estrategias.</li>
-                    <li><strong>Operaciones (Jorge L.):</strong> Optimizar costos de entrega y logística, asegurar gestión de inventario eficiente para soportar y priorizar las necesidades de los clientes estratégicos.</li>
-                    <li><strong>Finanzas (Mauricio R., Juanita):</strong> Seguimiento proactivo de pagos, gestión de riesgo crediticio por segmento, análisis continuo del costo de factoring y su impacto en la rentabilidad neta por cliente.</li>
-                    <li><strong>Liderazgo (Enrique V.):</strong> Impulsar el cambio cultural hacia la rentabilidad, supervisar la implementación del plan, y tomar decisiones estratégicas en casos complejos de clientes.</li>
-                </ul>
-            </p>
+            <p class="text-main mt-4"><strong>Acciones Clave del Equipo Comercial (Mary, Paz, Erick, Tomás):</strong> Aplicar estas estrategias, negociar condiciones, buscar cross/up-selling en clientes FOCO.</p>
+            <p class="text-main mt-2"><strong>Análisis de Categorías:</strong> Se priorizará la rentabilidad en <strong class="highlight">Mobiliario</strong> (meta >25%), se optimizará <strong class="highlight">Art. Oficina</strong> (evitando márgenes bajos como Prisa 4-9%) y se buscará eficiencia en <strong class="highlight">Desechables</strong>.</p>
         </section>
 
-        <section id="plan_trabajo" class="mb-12 stat-card">
-            <h2 class="section-title text-center">Plan de Trabajo Detallado</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                La implementación de esta estrategia requiere un plan de acción coordinado con actividades, responsables y plazos definidos.
-            </p>
+        <!-- Sección: Plan de Trabajo y Tareas Asignadas (Existente) -->
+        <section id="plan_trabajo_simple" class="mb-8 content-card">
+            <h2 class="section-heading">Plan de Trabajo y Tareas Asignadas (Holding)</h2>
             <div class="overflow-x-auto">
-                <table class="min-w-full bg-white border border-[#118AB2] text-sm">
-                    <thead class="bg-[#073B4C] text-white">
+                <table class="table-plan">
+                    <thead>
                         <tr>
-                            <th class="py-2 px-3 border-b border-r border-gray-600 text-left">Actividad</th>
-                            <th class="py-2 px-3 border-b border-r border-gray-600 text-left">Responsable(s)</th>
-                            <th class="py-2 px-3 border-b border-gray-600 text-left">Plazo Límite</th>
+                            <th>Actividad Principal</th>
+                            <th>Responsable(s)</th>
+                            <th>Plazo Estimado</th>
                         </tr>
                     </thead>
-                    <tbody class="text-[#374151]">
+                    <tbody>
                         <tr>
-                            <td class="py-2 px-3 border-b border-r">1. Finalización Análisis Detallado de Rentabilidad por Cliente y Categoría</td>
-                            <td class="py-2 px-3 border-b border-r">Enrique V., Mauricio R., Apoyo Equipo Comercial</td>
-                            <td class="py-2 px-3 border-b">Próximas 2 semanas (hasta ~14 Junio)</td>
+                            <td>1. Finalizar Análisis Rentabilidad Clientes y Pagos</td>
+                            <td>Enrique V., Mauricio R., Juanita</td>
+                            <td>~14 Junio</td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-3 border-b border-r">2. Integración Datos de Condiciones de Pago por Cliente</td>
-                            <td class="py-2 px-3 border-b border-r">Juanita, Mauricio R.</td>
-                            <td class="py-2 px-3 border-b">Próximas 2 semanas (hasta ~14 Junio)</td>
+                            <td>2. Definir Segmentos y Listados Finales de Clientes</td>
+                            <td>Enrique V., Mauricio R.</td>
+                            <td>Hasta 21 Junio</td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-3 border-b border-r">3. Definición Final de Segmentos de Clientes y Listados</td>
-                            <td class="py-2 px-3 border-b border-r">Enrique V., Mauricio R.</td>
-                            <td class="py-2 px-3 border-b">Hasta 21 Junio</td>
+                            <td>3. Capacitar Equipo Comercial en Estrategias</td>
+                            <td>Enrique V.</td>
+                            <td>Semana 24 Junio</td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-3 border-b border-r">4. Capacitación Detallada al Equipo Comercial sobre Segmentos y Estrategias</td>
-                            <td class="py-2 px-3 border-b border-r">Enrique V.</td>
-                            <td class="py-2 px-3 border-b">Semana del 24 Junio</td>
+                            <td>4. Revisar Carteras Individuales con Ejecutivos</td>
+                            <td>Ejecutivos Comerciales con Enrique V.</td>
+                            <td>Hasta 5 Julio</td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-3 border-b border-r">5. Revisión Individual de Carteras por Ejecutivo y Ajuste de Foco</td>
-                            <td class="py-2 px-3 border-b border-r">Mary, Paz, Erick, Tomás con Enrique V.</td>
-                            <td class="py-2 px-3 border-b">Hasta 5 Julio</td>
+                            <td>5. Implementar Estrategias de Clientes y Proyectos</td>
+                            <td>Equipo Comercial, Mary (Robot), Jorge L. (ERP)</td>
+                            <td>Desde Julio (Continuo)</td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-3 border-b border-r">6. Implementación Continua de Estrategias por Segmento</td>
-                            <td class="py-2 px-3 border-b border-r">Equipo Comercial</td>
-                            <td class="py-2 px-3 border-b">Continuo desde Julio</td>
+                            <td>6. Implementación Nuevo ERP (Fases Clave)</td>
+                            <td>Jorge L.</td>
+                            <td>Q4 2025 (Puesta en Marcha)</td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-3 border-b border-r">7. Seguimiento Mensual de KPIs y Ajustes Estratégicos</td>
-                            <td class="py-2 px-3 border-b border-r">Enrique V., Mauricio R., Jorge L., Líderes Comerciales</td>
-                            <td class="py-2 px-3 border-b">Mensual (1ª revisión fines de Julio)</td>
+                            <td>7. Seguimiento Mensual de KPIs</td>
+                            <td>Enrique V., Mauricio R., Líderes</td>
+                            <td>Mensual (1ª rev. fines Julio)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <section id="gantt" class="mb-12 stat-card">
-            <h2 class="section-title text-center">Carta Gantt Visual del Plan de Trabajo</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                Cronograma visual simplificado de las principales actividades y sus duraciones estimadas para los próximos meses.
-            </p>
-            <div class="gantt-chart overflow-x-auto p-2 bg-gray-50 rounded">
-                <div class="gantt-row gantt-header">
-                    <div class="gantt-task-name">Actividad / Mes</div>
-                    <div>Junio Sem 1-2</div>
-                    <div>Junio Sem 3</div>
-                    <div>Junio Sem 4</div>
-                    <div>Julio Sem 1-2</div>
-                    <div>Julio Sem 3-4</div>
-                    <div>Agosto+</div>
+        <!-- Sección: Carta Gantt Simplificada (Existente) -->
+        <section id="gantt_simple" class="mb-8 content-card">
+            <h2 class="section-heading">Carta Gantt Simplificada (Próximos 6 Meses) (Holding)</h2>
+            <div class="gantt-simplified overflow-x-auto p-2">
+                <div class="gantt-timeline-header-simplified">
+                    <div class="gantt-task-name-simplified gantt-header-simplified">Actividad / Mes</div>
+                    {[...Array(6)].map((_, i) => `<div class="gantt-header-simplified">Mes ${i+1}</div>`).join('')}
                 </div>
-                
-                <div class="gantt-row">
-                    <div class="gantt-task-name">1-2. Análisis Rentab. y Pagos</div>
-                    <div class="gantt-bar-container" style="grid-column: 2 / span 1;"> <div class="gantt-bar" style="width: 100%;"></div> </div>
-                </div>
-                <div class="gantt-row">
-                    <div class="gantt-task-name">3. Definición Segmentos</div>
-                    <div class="gantt-bar-container" style="grid-column: 3 / span 1;"> <div class="gantt-bar" style="width: 100%;"></div> </div>
-                     <div class="gantt-bar-container" style="grid-column: 3 / span 1;"> <div class="gantt-milestone" style="left: 95%;" title="Hito: Fin Análisis">FA</div> </div>
-                </div>
-                <div class="gantt-row">
-                    <div class="gantt-task-name">4. Capacitación Equipo</div>
-                    <div class="gantt-bar-container" style="grid-column: 4 / span 1;"> <div class="gantt-bar" style="width: 100%;"></div> </div>
-                    <div class="gantt-bar-container" style="grid-column: 4 / span 1;"> <div class="gantt-milestone" style="left: 95%;" title="Hito: Capacitación">C</div> </div>
-                </div>
-                <div class="gantt-row">
-                    <div class="gantt-task-name">5. Revisión Carteras Indiv.</div>
-                    <div class="gantt-bar-container" style="grid-column: 5 / span 1;"> <div class="gantt-bar" style="width: 100%;"></div> </div>
-                </div>
-                <div class="gantt-row">
-                    <div class="gantt-task-name">6. Implementación Estrategias</div>
-                    <div class="gantt-bar-container" style="grid-column: 5 / span 3;"> <div class="gantt-bar" style="width: 100%; background-color: #118AB2;"></div> </div>
-                </div>
-                <div class="gantt-row">
-                    <div class="gantt-task-name">7. Seguimiento KPIs</div>
-                     <div class="gantt-bar-container" style="grid-column: 6 / span 1;"> <div class="gantt-milestone" style="left: 95%; background-color: #FFD166; color: #073B4C;" title="Hito: 1ª Revisión KPIs">R1</div> </div>
-                    <div class="gantt-bar-container" style="grid-column: 6 / span 2;"> <div class="gantt-bar" style="width: 100%; background-color: #118AB2; opacity:0.5;"></div> </div>
-                </div>
+
+                {[
+                    { name: 'Análisis Clientes (1-2)', start: 1, span: 1, color: '#06D6A0' },
+                    { name: 'Capacitación Equipo (3-4)', start: 1, span: 1, color: '#06D6A0', offset: 0.5 }, // Solapado
+                    { name: 'Revisión Carteras (4-5)', start: 2, span: 1, color: '#06D6A0' },
+                    { name: 'Implement. Estrategias (5)', start: 2, span: 5, color: '#118AB2' }, // Duración extendida
+                    { name: 'Implement. ERP (6)', start: 1, span: 6, color: '#FF6B6B' }, // A lo largo de 6 meses
+                    { name: 'Optimización Robot (Mary)', start: 1, span: 3, color: '#FFD166'},
+                    { name: 'Seguimiento KPIs (7)', start: 2, span: 5, color: 'rgba(255,209,102,0.6)'}
+                ].map(task => `
+                    <div class="gantt-row-simplified">
+                        <div class="gantt-task-name-simplified" title="${task.name}">${task.name}</div>
+                        <div class="gantt-bar-container-simplified" style="--start-col: ${Math.floor(task.start) + 1}; --span-col: ${task.span};">
+                            <div class="gantt-bar-simplified" style="background-color: ${task.color}; margin-left: ${task.offset ? (task.offset * 100 / task.span) + '%' : '0'}; width: ${task.offset ? (100 - (task.offset * 100 / task.span)) + '%' : '100%'};"></div>
+                        </div>
+                    </div>
+                `).join('')}
             </div>
-            <p class="text-xs text-gray-500 mt-2 text-center">Nota: FA = Fin Análisis, C = Capacitación, R1 = 1ª Revisión KPIs. Las barras indican duración estimada.</p>
+            <p class="text-xs text-gray-500 mt-2 text-center">Nota: Cada columna representa un mes. Las barras indican duración estimada.</p>
         </section>
 
-        <section id="kpis" class="mb-12 stat-card">
-            <h2 class="section-title text-center">Indicadores Clave de Desempeño (KPIs)</h2>
-            <p class="text-content text-center mb-8 max-w-3xl mx-auto">
-                El seguimiento riguroso de estos indicadores nos permitirá medir el progreso y realizar ajustes oportunos a nuestra estrategia.
-            </p>
-            <ul class="kpi-list grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-                <li>Margen Bruto Promedio por Cliente (general y por segmento).</li>
-                <li>% de Ventas y Margen provenientes de cada segmento de la matriz.</li>
-                <li>Número de Clientes migrados entre segmentos.</li>
-                <li>Días Promedio de Cobro (DSO), general y por segmento.</li>
-                <li>% de Cartera Vencida, general y por segmento.</li>
-                <li>Rentabilidad Neta del Robot de Postulaciones.</li>
-                <li>"Margen Neto Real" por operación en Mobiliario.</li>
-                <li>Reducción de costos de factoring asociados a clientes de alto riesgo.</li>
+        <!-- Sección: KPIs Esenciales para Seguimiento (Existente) -->
+        <section id="kpis_simple" class="mb-8 content-card">
+            <h2 class="section-heading">KPIs Esenciales para Seguimiento (Holding)</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-main">
+                <li class="flex items-center"><span class="text-lg mr-2 text-[#06D6A0]">✔️</span>Margen Bruto Promedio por Cliente y Segmento.</li>
+                <li class="flex items-center"><span class="text-lg mr-2 text-[#06D6A0]">✔️</span>% Ventas/Margen de Clientes FOCO.</li>
+                <li class="flex items-center"><span class="text-lg mr-2 text-[#06D6A0]">✔️</span>Días Promedio de Cobro (DSO).</li>
+                <li class="flex items-center"><span class="text-lg mr-2 text-[#06D6A0]">✔️</span>% Cartera Vencida.</li>
+                <li class="flex items-center"><span class="text-lg mr-2 text-[#06D6A0]">✔️</span>Rentabilidad Neta Robot Postulaciones.</li>
+                <li class="flex items-center"><span class="text-lg mr-2 text-[#06D6A0]">✔️</span>Exactitud y Rotación de Inventario (Post-ERP).</li>
             </ul>
         </section>
-        
-        <section id="impacto" class="mb-12 text-center">
-            <h2 class="section-title">Impacto Esperado y Próximos Pasos</h2>
-            <p class="text-content mb-8 max-w-3xl mx-auto">
-                Con la implementación de esta estrategia de foco en el cliente, anticipamos una mejora significativa en la rentabilidad y solidez financiera del Holding.
+
+        <!-- NUEVAS SECCIONES DEL PLAN ESTRATÉGICO FIRMAVB -->
+
+        <!-- Sección 1: Introducción - Visión de Océanos Azules (FirmaVB) -->
+        <section id="introduccion_firmavb" class="section-card">
+            <h2 class="section-title">1. Introducción: Visión de Océanos Azules (FirmaVB)</h2>
+            <p class="text-lg leading-relaxed text-main">
+                FirmaVB ha decidido alinear toda su estrategia empresarial bajo una tesis central: los **océanos azules** —espacios competitivos con alto margen y poca saturación— solo pueden ser alcanzados mediante un **nivel de servicio excepcional**. No se trata solo de competir, sino de diferenciarnos radicalmente por la experiencia que ofrecemos.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                 <div class="stat-card">
-                    <h3 class="stat-title">Mejora Margen Bruto</h3>
-                    <p class="stat-value">🎯 18%+</p>
+        </section>
+
+        <!-- Sección 2: Fundamentos de la Estrategia (FirmaVB) -->
+        <section id="fundamentos_firmavb" class="section-card">
+            <h2 class="section-title">2. Fundamentos de la Estrategia (FirmaVB)</h2>
+            <p class="text-lg mb-6 text-main">Nuestro modelo se apoya en cuatro pilares estratégicos que fortalecen esta búsqueda:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50-custom p-6 rounded-lg shadow-sm flex items-start space-x-3">
+                    <span class="text-blue-600-custom text-2xl font-bold">1.</span>
+                    <p class="text-lg font-medium text-gray-700">Nivel de servicio como ventaja competitiva real.</p>
                 </div>
-                <div class="stat-card">
-                    <h3 class="stat-title">Salud Financiera</h3>
-                    <p class="stat-value">💪 Estable</p>
+                <div class="bg-blue-50-custom p-6 rounded-lg shadow-sm flex items-start space-x-3">
+                    <span class="text-blue-600-custom text-2xl font-bold">2.</span>
+                    <p class="text-lg font-medium text-gray-700">Optimización del flujo de caja (menos capital atrapado).</p>
                 </div>
-                <div class="stat-card">
-                    <h3 class="stat-title">Eficiencia Operativa</h3>
-                    <p class="stat-value">⚙️ Optimizada</p>
+                <div class="bg-blue-50-custom p-6 rounded-lg shadow-sm flex items-start space-x-3">
+                    <span class="text-blue-600-custom text-2xl font-bold">3.</span>
+                    <p class="text-lg font-medium text-gray-700">Consolidación de proveedores estratégicos.</p>
+                </div>
+                <div class="bg-blue-50-custom p-6 rounded-lg shadow-sm flex items-start space-x-3">
+                    <span class="text-blue-600-custom text-2xl font-bold">4.</span>
+                    <p class="text-lg font-medium text-gray-700">Mix de productos con foco en rentabilidad sostenible.</p>
                 </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="card-title">Próximos Pasos Clave (Post-Implementación Inicial):</h3>
-                <ul class="text-left text-content list-decimal list-inside space-y-2 max-w-xl mx-auto">
-                    <li>Establecimiento de metas individuales para el Equipo Comercial alineadas a estos objetivos.</li>
-                    <li>Sesiones de feedback continuo con el Equipo Comercial sobre la aplicación de estrategias.</li>
-                    <li>Revisión trimestral de la segmentación de clientes y efectividad de las estrategias.</li>
-                    <li>Ajustes al plan de incentivos del Equipo Comercial para reforzar el foco en rentabilidad y buenos pagadores.</li>
-                </ul>
-                <p class="mt-6 font-semibold text-[#073B4C]">¡Juntos construiremos un holding más fuerte y rentable!</p>
+        </section>
+
+        <!-- Sección 3: Categorías Estratégicas y Proveedores Clave (FirmaVB) -->
+        <section id="categorias_firmavb" class="section-card">
+            <h2 class="section-title">3. Categorías Estratégicas y Proveedores Clave (FirmaVB)</h2>
+            <div class="overflow-x-auto">
+                <table class="table-plan"> <!-- Usando la clase de tabla existente -->
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Proveedores Estratégicos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Artículos de Oficina</td>
+                            <td>Torre, Dipisa, Acco Brands, Prisa (pivote)</td>
+                        </tr>
+                        <tr>
+                            <td>Mobiliario (Ergonómico, Oficina, Escolar)</td>
+                            <td>Acco Brands (ergonomía), HP Muebles, Full Muebles, Ofix Chile, TokStok, Sodimac (pivote)</td>
+                        </tr>
+                        <tr>
+                            <td>Desechables</td>
+                            <td>Foodpack, DPS, Darnel, Akipack</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
+
+        <!-- Sección 4: Nivel de Servicio como Clave Estratégica (FirmaVB) -->
+        <section id="nivel_servicio_firmavb" class="section-card">
+            <h2 class="section-title">4. Nivel de Servicio como Clave Estratégica (FirmaVB)</h2>
+            <p class="text-lg mb-6 text-main">El nivel de servicio no es un valor adicional, sino el **núcleo** desde el cual construimos una ventaja competitiva sostenible. Esto implica:</p>
+            <ul>
+                <li class="text-main new-list-item">Cumplimiento de plazos</li>
+                <li class="text-main new-list-item">Agilidad en gestión de órdenes</li>
+                <li class="text-main new-list-item">Atención cercana y empática</li>
+                <li class="text-main new-list-item">Capacidad de adaptación al cliente</li>
+                <li class="text-main new-list-item">Excelencia en logística y postventa</li>
+            </ul>
+        </section>
+
+        <!-- Sección 5: Acciones Clave por Área (FirmaVB) -->
+        <section id="acciones_clave_firmavb" class="section-card">
+            <h2 class="section-title">5. Acciones Clave por Área (FirmaVB)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-green-50-custom p-6 rounded-lg shadow-sm">
+                    <h3 class="subsection-title text-green-700-custom">Comercial</h3>
+                    <p class="text-gray-700 text-main">Foco en las categorías definidas y en productos con márgenes saludables.</p>
+                </div>
+                <div class="bg-yellow-50-custom p-6 rounded-lg shadow-sm">
+                    <h3 class="subsection-title text-yellow-700-custom">Compras</h3>
+                    <p class="text-gray-700 text-main">Consolidar proveedores, estandarizar condiciones y negociar líneas de crédito efectivas.</p>
+                </div>
+                <div class="bg-red-50-custom p-6 rounded-lg shadow-sm">
+                    <h3 class="subsection-title text-red-700-custom">Administración y Finanzas</h3>
+                    <p class="text-gray-700 text-main">Priorizar a clientes que sí pagan. Minimizar uso de <i>factoring</i>. Control estricto de flujo de caja.</p>
+                </div>
+                <div class="bg-purple-50-custom p-6 rounded-lg shadow-sm">
+                    <h3 class="subsection-title text-purple-700-custom">Postventa y Logística</h3>
+                    <p class="text-gray-700 text-main">Garantizar un nivel de servicio excepcional en cada entrega y postventa institucional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 6: Conclusión y Liderazgo (FirmaVB) -->
+        <section id="conclusion_firmavb" class="section-card text-center">
+            <h2 class="section-title mx-auto">6. Conclusión y Liderazgo (FirmaVB)</h2>
+            <p class="text-lg mb-4 leading-relaxed text-main">
+                La evolución de FirmaVB no es un cambio de rumbo, sino una maduración estratégica.
+            </p>
+            <p class="text-2xl font-semibold text-[#118AB2] mb-6">
+                Nuestra meta no es competir donde todos compiten, sino <span class="font-bold italic">crear valor donde nadie más lo ve.</span>
+            </p>
+            <p class="text-xl leading-relaxed text-main">
+                El <span class="font-bold text-[#118AB2]">nivel de servicio</span> es el motor que nos lleva a esos espacios únicos de rentabilidad y crecimiento sostenible.
+            </p>
         </section>
 
     </main>
 
+    <!-- Pie de página (Existente) -->
     <footer class="bg-[#073B4C] text-center py-6 text-[#FFD166]">
-        <p>&copy; <span id="currentYear"></span> Holding Estratégico S.A. Todos los derechos reservados.</p>
-        <p class="text-xs mt-1">Infografía generada como herramienta de análisis estratégico (v2).</p>
+        <p class="font-semibold text-sm">&copy; <span id="currentYearSimple"></span> Holding Estratégico S.A.</p>
+        <p class="text-xs mt-1 opacity-75">Plan Estratégico Simplificado (v1)</p>
+        <p class="text-xs mt-1 opacity-75">FirmaVB Plan Estratégico</p>
+        <p class="text-xs mt-1 opacity-75">Atentamente, Enrique E. Varas B. - Gerente General – FirmaVB</p>
     </footer>
 
     <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        function wrapLabels(labels, maxWidth) {
-            return labels.map(label => {
-                if (typeof label === 'string' && label.length > maxWidth) {
-                    const words = label.split(' ');
-                    const lines = [];
-                    let currentLine = '';
-                    words.forEach(word => {
-                        if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
-                            lines.push(currentLine.trim());
-                            currentLine = word + ' ';
-                        } else {
-                            currentLine += word + ' ';
-                        }
-                    });
-                    lines.push(currentLine.trim());
-                    return lines;
-                }
-                return label;
-            });
-        }
-        
-        const tooltipTitleCallback = (tooltipItems) => {
-            const item = tooltipItems[0];
-            let label = item.chart.data.labels[item.dataIndex];
-            if (Array.isArray(label)) {
-                return label.join(' ');
-            }
-            return label;
-        };
-
-        const commonChartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        title: tooltipTitleCallback
-                    }
-                },
-                legend: {
-                    labels: {
-                        color: '#073B4C', 
-                         font: {
-                            size: 12
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: { color: '#073B4C', font: { size: 10 } },
-                    grid: { color: '#D1D5DB' }
-                },
-                x: {
-                    ticks: { color: '#073B4C', font: { size: 10 } },
-                    grid: { display: false }
-                }
-            }
-        };
-        
-        // Datos Reales y Simulados para Gráficos
-        // 1. Márgenes por Empresa Chart (Bar) - DATOS REALES
-        const margenesEmpresasCtx = document.getElementById('margenesEmpresasChart').getContext('2d');
-        new Chart(margenesEmpresasCtx, {
-            type: 'bar',
-            data: {
-                labels: wrapLabels([
-                    'Cloudbook', 
-                    'Grumpy', 
-                    'Mercado Público SPA', 
-                    'Promedio Holding (Actual)',
-                    'Meta Margen Holding'
-                ], 16),
-                datasets: [{
-                    label: 'Margen Bruto (%)',
-                    data: [13.02, 22.39, 10.29, 13.31, 18.00],
-                     backgroundColor: [
-                        '#FFD166', '#06D6A0', '#FF6B6B', '#118AB2', '#32CD32'
-                    ],
-                    borderColor: '#073B4C',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                ...commonChartOptions,
-                scales: {
-                    ...commonChartOptions.scales,
-                    y: {
-                        ...commonChartOptions.scales.y,
-                        ticks: {
-                            ...commonChartOptions.scales.y.ticks,
-                            callback: function(value) { return value.toFixed(2) + '%' }
-                        }
-                    }
-                },
-                plugins: {
-                     ...commonChartOptions.plugins,
-                    legend: { display: false } 
-                }
-            }
-        });
-
-        // 2. Distribución de Clientes Chart (Donut) - MODELO ILUSTRATIVO
-        const distribucionClientesCtx = document.getElementById('distribucionClientesChart').getContext('2d');
-        new Chart(distribucionClientesCtx, {
-            type: 'doughnut',
-            data: {
-                labels: wrapLabels([
-                    'Foco Prioritario 1 (Alto Margen, Buen Pagador)', 
-                    'Foco Prioritario 2 (Alto Margen, Pagador Promedio)', 
-                    'Evaluar Riesgo (Alto Margen, Mal Pagador)',
-                    'Foco Secundario (Margen Medio, Buen Pagador)',
-                    'Mantener/Optimizar (Margen Medio, Pagador Promedio)',
-                    'Alerta Máxima (Margen Medio, Mal Pagador)',
-                    'Optimizar Urgente (Bajo Margen, Buen Pagador)',
-                    'Baja Prioridad (Bajo Margen, Pagador Promedio)',
-                    'No Trabajar (Bajo Margen, Mal Pagador)'
-                ], 20), 
-                datasets: [{
-                    label: '% de Clientes (Ilustrativo)',
-                    data: [15, 10, 5, 30, 15, 10, 5, 5, 5], // Suma 100 - Ajustado para ilustración
-                    backgroundColor: ['#06D6A0', '#3CB371', '#2E8B57', '#FFD166', '#F0E68C', '#FFA07A', '#FF6B6B', '#CD5C5C', '#A52A2A'],
-                    borderColor: '#FFFFFF',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                ...commonChartOptions,
-                plugins: {
-                    ...commonChartOptions.plugins,
-                    legend: { 
-                        position: 'bottom',
-                        labels: { ...commonChartOptions.plugins.legend.labels, font: {size: 9} } 
-                    },
-                    title: {
-                        display: true,
-                        text: 'Modelo Ilustrativo - Porcentajes Ejemplificativos',
-                        color: '#FF6B6B',
-                        font: { size: 10 }
-                    }
-                },
-                scales: { x: { display: false }, y: { display: false } } 
-            }
-        });
-
-        // 3. Venta vs Margen Chart (Grouped Bar) - MODELO ILUSTRATIVO
-        const ventaMargenCtx = document.getElementById('ventaMargenChart').getContext('2d');
-        new Chart(ventaMargenCtx, {
-            type: 'bar',
-            data: {
-                labels: wrapLabels(['Foco Prioritario 1', 'Margen Medio (Bueno/Promedio)', 'Bajo Margen / Mal Pagador'], 16),
-                datasets: [
-                    {
-                        label: '% del Total de Ventas (Ilustrativo)',
-                        data: [35, 40, 25], // Ajustado para ilustración
-                        backgroundColor: '#118AB2', 
-                        borderColor: '#073B4C',
-                        borderWidth: 1
-                    },
-                    {
-                        label: '% del Total de Margen Bruto (Ilustrativo)',
-                        data: [55, 30, 15], // Ajustado para ilustración
-                        backgroundColor: '#06D6A0', 
-                        borderColor: '#049F80',
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                ...commonChartOptions,
-                 plugins: {
-                    ...commonChartOptions.plugins,
-                    title: {
-                        display: true,
-                        text: 'Modelo Ilustrativo - Porcentajes Ejemplificativos',
-                        color: '#FF6B6B',
-                        font: { size: 10 }
-                    }
-                }
-            }
-        });
-
+        document.getElementById('currentYearSimple').textContent = new Date().getFullYear();
+        Chart.register(ChartDataLabels);
 
         // Sticky Nav Scroll Active State
-        const navLinks = document.querySelectorAll('#sticky-nav a');
-        const sections = document.querySelectorAll('main section[id]');
+        const navElementSimple = document.getElementById('main-nav');
+        if (navElementSimple) {
+            const navLinksSimple = navElementSimple.querySelectorAll('a');
+            // Select all sections that have an ID and are within the main content area
+            const sectionsSimple = document.querySelectorAll('main section[id]');
 
-        function changeNav() {
-            let index = sections.length;
-            while(--index && window.scrollY + 100 < sections[index].offsetTop) {} 
-            
-            navLinks.forEach((link) => link.classList.remove('active'));
-            if (index >= 0 && navLinks[index]) { 
-               navLinks[index].classList.add('active');
+            function changeNavSimple() {
+                let index = sectionsSimple.length;
+                // Loop backwards to find the current section in view
+                while(--index >= 0 && window.scrollY + navElementSimple.offsetHeight + 10 < sectionsSimple[index].offsetTop) {}
+
+                navLinksSimple.forEach((link) => link.classList.remove('active'));
+                if (index >= 0 && navLinksSimple[index]) {
+                    // Find the corresponding nav link by matching href with section ID
+                    const currentSectionId = sectionsSimple[index].id;
+                    const activeLink = Array.from(navLinksSimple).find(link => link.getAttribute('href') === `#${currentSectionId}`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            }
+
+            if (sectionsSimple.length > 0) { // Ensure sections exist before adding listener
+                changeNavSimple();
+                window.addEventListener('scroll', changeNavSimple);
             }
         }
-
-        if (document.getElementById('sticky-nav')) { 
-            changeNav(); 
-            window.addEventListener('scroll', changeNav);
-        }
-
     </script>
 </body>
 </html>
