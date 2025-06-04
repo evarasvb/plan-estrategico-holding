@@ -266,7 +266,7 @@
                 <a href="#nuevo_rumbo_compromiso">Nuevo Rumbo y Compromiso</a>
                 <a href="#foco_comercial_presupuesto">Foco Comercial y Presupuesto</a>
                 <a href="#comunicados_oficiales">Comunicados Oficiales</a>
-                <a href="#resumen_oc">Resumen OC</a>
+                
                 <a href="#conclusion_firmavb">Conclusión FirmaVB</a>
             </div>
         </div>
@@ -692,42 +692,7 @@
             </p>
         </section>
 
-        <!-- Nueva Sección: Resumen de Órdenes de Compra (OC) -->
-        <section id="resumen_oc" class="section-card">
-            <h2 class="section-title">Resumen de Órdenes de Compra (OC)</h2>
-            <p class="text-lg leading-relaxed text-main mb-4">
-                Aquí se presenta un resumen de los principales datos de Órdenes de Compra, destacando a nuestros top 5 en proveedores, instituciones y productos, basado en la información de tu archivo "REGISTRO OC_2025 - Reporte General OC.csv".
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Top 5 Proveedores -->
-                <div class="bg-blue-50-custom p-6 rounded-lg shadow-sm">
-                    <h3 class="subsection-title text-blue-600-custom">Top 5 Proveedores</h3>
-                    <ul id="top-suppliers-list" class="list-disc list-inside text-main">
-                        <!-- Data will be loaded here by JavaScript -->
-                    </ul>
-                </div>
-
-                <!-- Top 5 Instituciones -->
-                <div class="bg-green-50-custom p-6 rounded-lg shadow-sm">
-                    <h3 class="subsection-title text-green-700-custom">Top 5 Instituciones</h3>
-                    <ul id="top-institutions-list" class="list-disc list-inside text-main">
-                        <!-- Data will be loaded here by JavaScript -->
-                    </ul>
-                </div>
-
-                <!-- Top 5 Productos -->
-                <div class="bg-yellow-50-custom p-6 rounded-lg shadow-sm">
-                    <h3 class="subsection-title text-yellow-700-custom">Top 5 Productos</h3>
-                    <ul id="top-products-list" class="list-disc list-inside text-main">
-                        <!-- Data will be loaded here by JavaScript -->
-                    </ul>
-                </div>
-            </div>
-            <p class="text-xs text-gray-500 mt-4 text-center">
-                Nota: Los datos se extraen del archivo "REGISTRO OC_2025 - Reporte General OC.csv". Si el archivo no se encuentra o las columnas no coinciden, se mostrará un mensaje de error.
-            </p>
-        </section>
+        
 
         <!-- Sección 6: Conclusión y Liderazgo (FirmaVB) -->
         <section id="conclusion_firmavb" class="section-card text-center">
