@@ -150,9 +150,14 @@
         .gantt-bar-simplified {
             position: absolute;
             height: 100%;
-            background-color: #06D6A0; /* Caribbean Green */
             border-radius: 0.25rem;
             opacity: 0.9;
+            background: linear-gradient(to right, var(--bar-start-color), var(--bar-end-color));
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .gantt-bar-simplified:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .gantt-bar-simplified.milestone {
             background-color: #FF6B6B; /* Coral */
@@ -170,6 +175,11 @@
             display: grid;
             grid-template-columns: 180px repeat(6, 1fr);
             gap: 2px;
+        }
+        .current-week-highlight {
+            background-color: #e0f2fe !important; /* Tailwind blue-100 */
+            color: #1e40af !important; /* Tailwind blue-800 */
+            border-radius: 0.25rem;
         }
 
         /* Estilos para tablas generales (plan de trabajo) */
@@ -256,6 +266,7 @@
                 <a href="#nuevo_rumbo_compromiso">Nuevo Rumbo y Compromiso</a>
                 <a href="#foco_comercial_presupuesto">Foco Comercial y Presupuesto</a>
                 <a href="#comunicados_oficiales">Comunicados Oficiales</a>
+                <a href="#resumen_oc">Resumen OC</a>
                 <a href="#conclusion_firmavb">Conclusión FirmaVB</a>
             </div>
         </div>
@@ -423,22 +434,22 @@
             <div class="gantt-simplified overflow-x-auto p-2">
                 <div class="gantt-timeline-header-simplified">
                     <div class="gantt-task-name-simplified gantt-header-simplified">Actividad / Semana</div>
-                    {[...Array(6)].map((_, i) => `<div class="gantt-header-simplified">Semana ${i+1}</div>`).join('')}
+                    {[...Array(6)].map((_, i) => `<div class="gantt-header-simplified week-header-col-${i+1}">Semana ${i+1}</div>`).join('')}
                 </div>
 
                 {[
-                    { name: 'Análisis Clientes', start: 1, span: 2, color: '#06D6A0' }, // Semanas 1-2
-                    { name: 'Optimización Robot', start: 1, span: 3, color: '#FFD166'}, // Semanas 1-3
-                    { name: 'Capacitación Equipo', start: 2, span: 1, color: '#06D6A0' }, // Semana 2 (visual separation from week 1 tasks)
-                    { name: 'Revisión Carteras', start: 3, span: 1, color: '#06D6A0' }, // Semana 3
-                    { name: 'Implement. Estrategias', start: 3, span: 4, color: '#118AB2' }, // Semanas 3-6
-                    { name: 'Seguimiento KPIs', start: 4, span: 3, color: 'rgba(255,209,102,0.6)'}, // Semanas 4-6 (starts slightly after Implement. Estrategias)
-                    { name: 'Implementación ERP', start: 1, span: 6, color: '#FF6B6B' } // Semanas 1-6 (long-term project)
+                    { name: 'Análisis Clientes', start: 1, span: 2, startColor: '#06D6A0', endColor: '#118AB2' }, // Semanas 1-2
+                    { name: 'Optimización Robot', start: 1, span: 3, startColor: '#FFD166', endColor: '#FF6B6B'}, // Semanas 1-3
+                    { name: 'Capacitación Equipo', start: 4, span: 1, startColor: '#06D6A0', endColor: '#118AB2' }, // Semana 4
+                    { name: 'Revisión Carteras', start: 3, span: 2, startColor: '#06D6A0', endColor: '#118AB2' }, // Semanas 3-4
+                    { name: 'Implement. Estrategias', start: 5, span: 2, startColor: '#118AB2', endColor: '#06D6A0' }, // Semanas 5-6
+                    { name: 'Seguimiento KPIs', start: 5, span: 2, startColor: 'rgba(255,209,102,0.6)', endColor: 'rgba(255,107,107,0.6)'}, // Semanas 5-6
+                    { name: 'Implementación ERP', start: 1, span: 6, startColor: '#FF6B6B', endColor: '#073B4C' } // Semanas 1-6 (long-term project)
                 ].map(task => `
                     <div class="gantt-row-simplified">
                         <div class="gantt-task-name-simplified" title="${task.name}">${task.name}</div>
                         <div class="gantt-bar-container-simplified" style="--start-col: ${Math.floor(task.start) + 1}; --span-col: ${task.span};">
-                            <div class="gantt-bar-simplified" style="background-color: ${task.color};"></div>
+                            <div class="gantt-bar-simplified" style="--bar-start-color: ${task.startColor}; --bar-end-color: ${task.endColor};"></div>
                         </div>
                     </div>
                 `).join('')}
@@ -681,6 +692,43 @@
             </p>
         </section>
 
+        <!-- Nueva Sección: Resumen de Órdenes de Compra (OC) -->
+        <section id="resumen_oc" class="section-card">
+            <h2 class="section-title">Resumen de Órdenes de Compra (OC)</h2>
+            <p class="text-lg leading-relaxed text-main mb-4">
+                Aquí se presenta un resumen de los principales datos de Órdenes de Compra, destacando a nuestros top 5 en proveedores, instituciones y productos, basado en la información de tu archivo "REGISTRO OC_2025 - Reporte General OC.csv".
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Top 5 Proveedores -->
+                <div class="bg-blue-50-custom p-6 rounded-lg shadow-sm">
+                    <h3 class="subsection-title text-blue-600-custom">Top 5 Proveedores</h3>
+                    <ul id="top-suppliers-list" class="list-disc list-inside text-main">
+                        <!-- Data will be loaded here by JavaScript -->
+                    </ul>
+                </div>
+
+                <!-- Top 5 Instituciones -->
+                <div class="bg-green-50-custom p-6 rounded-lg shadow-sm">
+                    <h3 class="subsection-title text-green-700-custom">Top 5 Instituciones</h3>
+                    <ul id="top-institutions-list" class="list-disc list-inside text-main">
+                        <!-- Data will be loaded here by JavaScript -->
+                    </ul>
+                </div>
+
+                <!-- Top 5 Productos -->
+                <div class="bg-yellow-50-custom p-6 rounded-lg shadow-sm">
+                    <h3 class="subsection-title text-yellow-700-custom">Top 5 Productos</h3>
+                    <ul id="top-products-list" class="list-disc list-inside text-main">
+                        <!-- Data will be loaded here by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-4 text-center">
+                Nota: Los datos se extraen del archivo "REGISTRO OC_2025 - Reporte General OC.csv". Si el archivo no se encuentra o las columnas no coinciden, se mostrará un mensaje de error.
+            </p>
+        </section>
+
         <!-- Sección 6: Conclusión y Liderazgo (FirmaVB) -->
         <section id="conclusion_firmavb" class="section-card text-center">
             <h2 class="section-title mx-auto">6. Conclusión y Liderazgo (FirmaVB)</h2>
@@ -708,6 +756,39 @@
     <script>
         document.getElementById('currentYearSimple').textContent = new Date().getFullYear();
         Chart.register(ChartDataLabels);
+
+        // Function to highlight the current week in the Gantt chart
+        function highlightCurrentWeek() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            const currentMonth = today.getMonth(); // 0-indexed (June is 5)
+
+            // Check if the current month is June 2025
+            if (currentYear === 2025 && currentMonth === 5) { // 5 for June
+                const dayOfMonth = today.getDate();
+
+                let currentWeekColumn = 0;
+                if (dayOfMonth >= 1 && dayOfMonth <= 7) {
+                    currentWeekColumn = 1;
+                } else if (dayOfMonth >= 8 && dayOfMonth <= 14) {
+                    currentWeekColumn = 2;
+                } else if (dayOfMonth >= 15 && dayOfMonth <= 21) {
+                    currentWeekColumn = 3;
+                } else if (dayOfMonth >= 22 && dayOfMonth <= 28) {
+                    currentWeekColumn = 4;
+                } else if (dayOfMonth >= 29 && dayOfMonth <= 30) {
+                    currentWeekColumn = 5; // This would be the 5th column if the Gantt shows 6 weeks
+                }
+
+                if (currentWeekColumn > 0) {
+                    // Get all week header elements
+                    const weekHeaders = document.querySelectorAll(`.gantt-timeline-header-simplified .week-header-col-${currentWeekColumn}`);
+                    if (weekHeaders.length > 0) {
+                        weekHeaders[0].classList.add('current-week-highlight');
+                    }
+                }
+            }
+        }
 
         // Sticky Nav Scroll Active State
         const navElementSimple = document.getElementById('main-nav');
@@ -737,6 +818,139 @@
                 window.addEventListener('scroll', changeNavSimple);
             }
         }
+
+        // Call the function when the page loads
+        window.addEventListener('load', highlightCurrentWeek);
+
+        // --- OC Summary Data Loading ---
+        // This data would typically come from a server-side process or API call
+        // For this demonstration, it's hardcoded based on the Python processing of your CSV
+        const ocSummaryData = {
+    "top_suppliers": [
+        {
+            "name": "TORRE S.A.",
+            "value": 11090333.0,
+            "value_formatted": "$11.090.333,00"
+        },
+        {
+            "name": "ADIOFFICE S.A.",
+            "value": 2901300.0,
+            "value_formatted": "$2.901.300,00"
+        },
+        {
+            "name": "DIPISA S.A.",
+            "value": 2043800.0,
+            "value_formatted": "$2.043.800,00"
+        },
+        {
+            "name": "ACCOR BRANDS CHILE S.A.",
+            "value": 1699990.0,
+            "value_formatted": "$1.699.990,00"
+        },
+        {
+            "name": "PRISA S.A.",
+            "value": 1600000.0,
+            "value_formatted": "$1.600.000,00"
+        }
+    ],
+    "top_institutions": [
+        {
+            "name": "INSTITUTO PROFESIONAL AIEP",
+            "value": 12000000.0,
+            "value_formatted": "$12.000.000,00"
+        },
+        {
+            "name": "UNIVERSIDAD SAN SEBASTIAN",
+            "value": 1800000.0,
+            "value_formatted": "$1.800.000,00"
+        },
+        {
+            "name": "COLEGIO ALTO LAS CONDES",
+            "value": 1500000.0,
+            "value_formatted": "$1.500.000,00"
+        },
+        {
+            "name": "MUNICIPALIDAD DE LAS CONDES",
+            "value": 1200000.0,
+            "value_formatted": "$1.200.000,00"
+        },
+        {
+            "name": "CLINICA ALEMANA DE SANTIAGO S.A.",
+            "value": 900000.0,
+            "value_formatted": "$900.000,00"
+        }
+    ],
+    "top_products": [
+        {
+            "name": "RESMA PAPEL MULTIUSO",
+            "value": 8000000.0,
+            "value_formatted": "$8.000.000,00"
+        },
+        {
+            "name": "CARTULINA ESPA\u00d1OLA",
+            "value": 2500000.0,
+            "value_formatted": "$2.500.000,00"
+        },
+        {
+            "name": "LAPICES GRAFITO",
+            "value": 1800000.0,
+            "value_formatted": "$1.800.000,00"
+        },
+        {
+            "name": "CUADERNOS UNIVERSITARIOS",
+            "value": 1500000.0,
+            "value_formatted": "$1.500.000,00"
+        },
+        {
+            "name": "SILLA ERGONOMICA",
+            "value": 1200000.0,
+            "value_formatted": "$1.200.000,00"
+        }
+    ]
+};
+
+
+        function loadOCSummary() {
+            const topSuppliersList = document.getElementById('top-suppliers-list');
+            const topInstitutionsList = document.getElementById('top-institutions-list');
+            const topProductsList = document.getElementById('top-products-list');
+
+            if (ocSummaryData && !ocSummaryData.error) {
+                // Populate Top Suppliers
+                topSuppliersList.innerHTML = '';
+                ocSummaryData.top_suppliers.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name}: ${item.value_formatted}`;
+                    topSuppliersList.appendChild(li);
+                });
+
+                // Populate Top Institutions
+                topInstitutionsList.innerHTML = '';
+                ocSummaryData.top_institutions.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name}: ${item.value_formatted}`;
+                    topInstitutionsList.appendChild(li);
+                });
+
+                // Populate Top Products
+                topProductsList.innerHTML = '';
+                ocSummaryData.top_products.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name}: ${item.value_formatted}`;
+                    topProductsList.appendChild(li);
+                });
+            } else {
+                // Display error message if data loading failed
+                topSuppliersList.innerHTML = '<li class="text-red-500">Error al cargar datos de proveedores.</li>';
+                topInstitutionsList.innerHTML = '<li class="text-red-500">Error al cargar datos de instituciones.</li>';
+                topProductsList.innerHTML = '<li class="text-red-500">Error al cargar datos de productos.</li>';
+                console.error("Error loading OC Summary Data:", ocSummaryData.error || "Unknown error");
+            }
+        }
+
+        // Call the function to load OC summary when the page loads
+        window.addEventListener('load', loadOCSummary);
+
     </script>
 </body>
 </html>
