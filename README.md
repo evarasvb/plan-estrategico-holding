@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<By FirmaVB>
+<<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -429,35 +429,8 @@
         </section>
 
         <!-- Sección: Carta Gantt Simplificada (ELIMINADA) -->
-        <!--
-        <section id="gantt_simple" class="mb-8 content-card">
-            <h2 class="section-heading">Carta Gantt Simplificada (Próximas 6 Semanas) (Holding)</h2>
-            <div class="gantt-simplified overflow-x-auto p-2">
-                <div class="gantt-timeline-header-simplified">
-                    <div class="gantt-task-name-simplified gantt-header-simplified">Actividad / Semana</div>
-                    {[...Array(6)].map((_, i) => `<div class="gantt-header-simplified week-header-col-${i+1}">Semana ${i+1}</div>`).join('')}
-                </div>
-
-                {[
-                    { name: 'Análisis Clientes', start: 1, span: 2, startColor: '#06D6A0', endColor: '#118AB2' }, // Semanas 1-2
-                    { name: 'Optimización Robot', start: 1, span: 3, startColor: '#FFD166', endColor: '#FF6B6B'}, // Semanas 1-3
-                    { name: 'Capacitación Equipo', start: 4, span: 1, startColor: '#06D6A0', endColor: '#118AB2' }, // Semana 4
-                    { name: 'Revisión Carteras', start: 3, span: 2, startColor: '#06D6A0', endColor: '#118AB2' }, // Semanas 3-4
-                    { name: 'Implement. Estrategias', start: 5, span: 2, startColor: '#118AB2', endColor: '#06D6A0' }, // Semanas 5-6
-                    { name: 'Seguimiento KPIs', start: 5, span: 2, startColor: 'rgba(255,209,102,0.6)', endColor: 'rgba(255,107,107,0.6)'}, // Semanas 5-6
-                    { name: 'Implementación ERP', start: 1, span: 6, startColor: '#FF6B6B', endColor: '#073B4C' } // Semanas 1-6 (long-term project)
-                ].map(task => `
-                    <div class="gantt-row-simplified">
-                        <div class="gantt-task-name-simplified" title="${task.name}">${task.name}</div>
-                        <div class="gantt-bar-container-simplified" style="--start-col: ${Math.floor(task.start) + 1}; --span-col: ${task.span};">
-                            <div class="gantt-bar-simplified" style="--bar-start-color: ${task.startColor}; --bar-end-color: ${task.endColor};"></div>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-            <p class="text-xs text-gray-500 mt-2 text-center">Nota: Cada columna representa una semana. Las barras indican duración estimada.</p>
-        </section>
-        -->
+        <!-- La sección completa de la Carta Gantt ha sido eliminada según la solicitud. -->
+        <!-- <section id="gantt_simple" class="mb-8 content-card"> ... </section> -->
 
         <!-- Sección: KPIs Esenciales para Seguimiento (Existente) -->
         <section id="kpis_simple" class="mb-8 content-card">
@@ -548,7 +521,7 @@
                 </table>
             </div>
             <p class="text-main mt-4">
-                A partir de ahora, en la categoría de artículos de oficina, concentraremos nuestro esfuerzo estratégico y comercial trabajando exclusivamente con **cinco proveedores claves y estratégicos**: Acco Brands, Torre, Adioffice, Dipisa y Prisa. Reduciremos nuestra base de 16 proveedores a solo estos 5 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
+                A partir de ahora, en la categoría de artículos de oficina, concentraremos nuestro esfuerzo estratégico y comercial trabajando exclusivamente con **siete proveedores claves y estratégicos**: Acco Brands, Torre, Adioffice, Dipisa, Prisa, [Nuevo Proveedor 1], [Nuevo Proveedor 2]. Reduciremos nuestra base de 16 proveedores a solo estos 7 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
             </p>
             <p class="text-main mt-2">
                 Respecto a las demás categorías, realizaremos una revisión exhaustiva durante el mes de junio para asegurar que todas estén alineadas con nuestra estrategia central de rentabilidad y "océanos azules".
@@ -574,11 +547,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-green-50-custom p-6 rounded-lg shadow-sm">
                     <h3 class="subsection-title text-green-700-custom">Comercial</h3>
-                    <p class="text-gray-700 text-main">Foco en las categorías definidas y en productos con márgenes saludables. **Prioridad en los 5 proveedores estratégicos de artículos de oficina.**</p>
+                    <p class="text-gray-700 text-main">Foco en las categorías definidas y en productos con márgenes saludables. **Prioridad en los 7 proveedores estratégicos de artículos de oficina.**</p>
                 </div>
                 <div class="bg-yellow-50-custom p-6 rounded-lg shadow-sm">
                     <h3 class="subsection-title text-yellow-700-custom">Compras</h3>
-                    <p class="text-gray-700 text-main">Consolidar proveedores, estandarizar condiciones y negociar líneas de crédito efectivas. **Reducción de 16 a 5 proveedores clave.**</p>
+                    <p class="text-gray-700 text-main">Consolidar proveedores, estandarizar condiciones y negociar líneas de crédito efectivas. **Reducción a 7 proveedores clave.**</p>
                 </div>
                 <div class="bg-red-50-custom p-6 rounded-lg shadow-sm">
                     <h3 class="subsection-title text-red-700-custom">Administración y Finanzas</h3>
@@ -629,7 +602,7 @@
 
             <h3 class="subsection-title">Consolidación de Proveedores y Foco en Rentabilidad (Continuación)</h3>
             <p class="text-main mb-2">
-                El primer gran paso en esta dirección lo daremos en la categoría de artículos de oficina. A partir de ahora, concentraremos todo nuestro esfuerzo estratégico y comercial trabajando exclusivamente con cinco proveedores claves y estratégicos de esta categoría como: Acco Brands, Torre, Adioffice, Dipisa y Prisa. Reduciremos nuestra base de 16 proveedores a solo estos 5 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
+                El primer gran paso en esta dirección lo daremos en la categoría de artículos de oficina. A partir de ahora, concentraremos todo nuestro esfuerzo estratégico y comercial trabajando exclusivamente con **siete proveedores claves y estratégicos**: Acco Brands, Torre, Adioffice, Dipisa, Prisa, [Nuevo Proveedor 1], [Nuevo Proveedor 2]. Reduciremos nuestra base de 16 proveedores a solo estos 7 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
             </p>
             <p class="text-main mb-2">
                 Esta medida debe ir acompañada de un foco implacable en la rentabilidad. Por ello, es fundamental priorizar a los clientes que sí pagan. Nuestro equipo de Administración y Finanzas jugará un rol crucial aquí, manteniéndonos alerta y asegurando que cada venta que cerremos contribuya positivamente al resultado final. El esfuerzo de venta es valioso solo cuando se traduce en flujo de caja.
@@ -694,7 +667,64 @@
             </p>
         </section>
 
-        
+        <!-- Nueva Sección: Procedimiento de Emisión de Facturas para Proveedores -->
+        <section id="procedimiento_facturas" class="section-card">
+            <h2 class="section-title">Procedimiento Proveedores Emisión de Facturas 2025</h2>
+            <p class="text-lg leading-relaxed text-main mb-4">
+                Estimado(a) Proveedor(a):
+                Con el objetivo de agilizar y asegurar la correcta recepción y procesamiento de sus facturas, le solicitamos seguir el siguiente protocolo de envío de documentación para todas las compras realizadas por nuestra compañía. Este procedimiento aplica para todas las órdenes de compra emitidas por nuestra empresa.
+            </p>
+
+            <h3 class="subsection-title">1. Datos de Facturación:</h3>
+            <p class="text-main mb-2">
+                Es crucial que las facturas se emitan con nuestra información tributaria precisa. Consulte a su comprador y especifique claramente la condición de pago, incluyendo en el campo 801 de la factura el número de nuestra orden de compra.
+            </p>
+
+            <h3 class="subsection-title">2. Proceso de Envío de Facturas y Guías de Despacho:</h3>
+            <p class="text-main mb-2">
+                Una vez despachado el producto y emitida la factura, siga estos pasos:
+            </p>
+            <ul class="list-disc list-inside text-main mb-4">
+                <li class="new-list-item">
+                    **Envío de Correo Electrónico:** Envíe un correo electrónico con la siguiente estructura:
+                    <ul class="list-circle list-inside ml-4 text-sm mt-2">
+                        <li>Para: Facturacion y Cobranzas</li>
+                        <li>Con Copia (CC): Emprendedores</li>
+                        <li>Con Copia (CC): Administracion FirmaVB</li>
+                        <li>Asunto del Correo: "Factura N° [Número de Factura] - OC N° [Número de Orden de Compra] - [Nombre de tu Empresa Proveedora]"</li>
+                    </ul>
+                </li>
+                <li class="new-list-item">
+                    **Adjuntos Obligatorios:**
+                    <ul class="list-circle list-inside ml-4 text-sm mt-2">
+                        <li>Factura Electrónica en formato XML y PDF: Asegúrese de adjuntar ambos formatos.</li>
+                        <li>Para el envío del XML es necesario enviarlo a nuestra casilla del facturador electrónico: <strong class="highlight">cl.empresas@defontanadte.com</strong></li>
+                        <li>Guía(s) de Despacho / Factura Recepcionada(s) Conforme: Es indispensable adjuntar la copia de la guía de despacho o factura debidamente timbrada y firmada por nuestro personal al momento de la recepción del producto. Sin este documento, no podremos procesar su pago.</li>
+                    </ul>
+                </li>
+                <li class="new-list-item">
+                    **Recepción Conforme:** Recuerde que es responsabilidad del transportista o repartidor obtener la firma y el timbre de "recepción conforme" en la guía de despacho o factura por parte de nuestro equipo.
+                </li>
+            </ul>
+
+            <h3 class="subsection-title">3. Observaciones Importantes:</h3>
+            <ul class="list-disc list-inside text-main mb-4">
+                <li class="new-list-item">
+                    **Documentación Completa:** Solo se procesarán las facturas que vengan acompañadas de la guía de despacho o factura debidamente recepcionada conforme y con los datos de nuestra empresa ingresados correctamente.
+                </li>
+                <li class="new-list-item">
+                    **Contacto para Consultas:** En caso de dudas sobre este procedimiento, favor de contactar al área de Compras de FirmaVB.
+                </li>
+            </ul>
+            <p class="text-lg leading-relaxed text-main mb-4">
+                Agradecemos de antemano su colaboración para asegurar una gestión eficiente y oportuna de nuestros procesos de compra y pago.
+            </p>
+            <p class="text-main text-right mt-4">
+                Saludos cordiales,<br>
+                El Equipo de Compras FirmaVB<br>
+                Un abrazo, Enrique E. Varas B. | FirmaVB
+            </p>
+        </section>
 
         <!-- Sección 6: Conclusión y Liderazgo (FirmaVB) -->
         <section id="conclusion_firmavb" class="section-card text-center">
@@ -724,7 +754,7 @@
         document.getElementById('currentYearSimple').textContent = new Date().getFullYear();
         Chart.register(ChartDataLabels);
 
-        // Function to highlight the current week in the Gantt chart
+        // Function to highlight the current week in the Gantt chart (still present in JS for robustness)
         function highlightCurrentWeek() {
             const today = new Date();
             const currentYear = today.getFullYear();
@@ -789,7 +819,7 @@
         // Call the function when the page loads
         window.addEventListener('load', highlightCurrentWeek);
 
-        // --- OC Summary Data Loading ---
+        // --- OC Summary Data Loading (Still present, but section removed from HTML) ---
         // This data would typically come from a server-side process or API call
         // For this demonstration, it's hardcoded based on the Python processing of your CSV
         const ocSummaryData = {
@@ -878,11 +908,12 @@
 
 
         function loadOCSummary() {
+            // Check if the element exists before trying to populate it
             const topSuppliersList = document.getElementById('top-suppliers-list');
             const topInstitutionsList = document.getElementById('top-institutions-list');
             const topProductsList = document.getElementById('top-products-list');
 
-            if (ocSummaryData && !ocSummaryData.error) {
+            if (ocSummaryData && !ocSummaryData.error && topSuppliersList && topInstitutionsList && topProductsList) {
                 // Populate Top Suppliers
                 topSuppliersList.innerHTML = '';
                 ocSummaryData.top_suppliers.forEach(item => {
@@ -906,11 +937,11 @@
                     li.textContent = `${item.name}: ${item.value_formatted}`;
                     topProductsList.appendChild(li);
                 });
-            } else {
-                // Display error message if data loading failed
-                topSuppliersList.innerHTML = '<li class="text-red-500">Error al cargar datos de proveedores.</li>';
-                topInstitutionsList.innerHTML = '<li class="text-red-500">Error al cargar datos de instituciones.</li>';
-                topProductsList.innerHTML = '<li class="text-red-500">Error al cargar datos de productos.</li>';
+            } else if (ocSummaryData.error) {
+                 // Display error message if data loading failed, checking if elements exist first
+                if (topSuppliersList) topSuppliersList.innerHTML = '<li class="text-red-500">Error al cargar datos de proveedores.</li>';
+                if (topInstitutionsList) topInstitutionsList.innerHTML = '<li class="text-red-500">Error al cargar datos de instituciones.</li>';
+                if (topProductsList) topProductsList.innerHTML = '<li class="text-red-500">Error al cargar datos de productos.</li>';
                 console.error("Error loading OC Summary Data:", ocSummaryData.error || "Unknown error");
             }
         }
