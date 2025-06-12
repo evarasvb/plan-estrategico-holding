@@ -1,5 +1,5 @@
 <By FirmaVB>
-<<html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -256,7 +256,7 @@
                 <a href="#objetivos_simple">Objetivos Holding</a>
                 <a href="#estrategia_clientes_simple">Estrategia Clientes Holding</a>
                 <a href="#plan_trabajo_simple">Plan de Trabajo Holding</a>
-                <!-- <a href="#gantt_simple">Gantt Holding</a> --> <!-- Enlace eliminado -->
+                <!-- <a href="#gantt_simple">Gantt Holding</a> -->
                 <a href="#kpis_simple">KPIs Holding</a>
                 <a href="#introduccion_firmavb">Introducción FirmaVB</a>
                 <a href="#fundamentos_firmavb">Fundamentos FirmaVB</a>
@@ -266,7 +266,7 @@
                 <a href="#nuevo_rumbo_compromiso">Nuevo Rumbo y Compromiso</a>
                 <a href="#foco_comercial_presupuesto">Foco Comercial y Presupuesto</a>
                 <a href="#comunicados_oficiales">Comunicados Oficiales</a>
-                
+                <a href="#procedimiento_facturas">Procedimiento Facturas</a>
                 <a href="#conclusion_firmavb">Conclusión FirmaVB</a>
             </div>
         </div>
@@ -357,7 +357,7 @@
                             <td class="p-2 bg-red-50">🔍 EVALUAR</td>
                         </tr>
                         <tr class="text-center border-b">
-                            <td class="p-2 bg-slate-50">Margen Medio</td>
+                            <td class="p-2 font-semibold bg-slate-50">Margen Medio</td>
                             <td class="p-2 bg-green-50">📈 OPTIMIZAR MARGEN</td>
                             <td class="p-2 bg-yellow-50">⚖️ MANTENER/OPTIMIZAR</td>
                             <td class="p-2 bg-red-50">🚨 ALERTA</td>
@@ -507,7 +507,7 @@
                     <tbody>
                         <tr>
                             <td>Artículos de Oficina</td>
-                            <td>Torre, Dipisa, Acco Brands, Prisa (pivote)</td>
+                            <td>Acco Brands, Torre, Distec Pronobel, Adiofice, Dipisa, Prisa (pivote), [Nuevo Proveedor 7]</td>
                         </tr>
                         <tr>
                             <td>Mobiliario (Ergonómico, Oficina, Escolar)</td>
@@ -521,7 +521,7 @@
                 </table>
             </div>
             <p class="text-main mt-4">
-                A partir de ahora, en la categoría de artículos de oficina, concentraremos nuestro esfuerzo estratégico y comercial trabajando exclusivamente con **siete proveedores claves y estratégicos**: Acco Brands, Torre, Adioffice, Dipisa, Prisa, [Nuevo Proveedor 1], [Nuevo Proveedor 2]. Reduciremos nuestra base de 16 proveedores a solo estos 7 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
+                A partir de ahora, en la categoría de artículos de oficina, concentraremos nuestro esfuerzo estratégico y comercial trabajando exclusivamente con **siete proveedores claves y estratégicos**: Acco Brands, Torre, Distec Pronobel, Adiofice, Dipisa, Prisa, y un séptimo proveedor a definir. Reduciremos nuestra base de 16 proveedores a solo estos 7 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
             </p>
             <p class="text-main mt-2">
                 Respecto a las demás categorías, realizaremos una revisión exhaustiva durante el mes de junio para asegurar que todas estén alineadas con nuestra estrategia central de rentabilidad y "océanos azules".
@@ -602,7 +602,7 @@
 
             <h3 class="subsection-title">Consolidación de Proveedores y Foco en Rentabilidad (Continuación)</h3>
             <p class="text-main mb-2">
-                El primer gran paso en esta dirección lo daremos en la categoría de artículos de oficina. A partir de ahora, concentraremos todo nuestro esfuerzo estratégico y comercial trabajando exclusivamente con **siete proveedores claves y estratégicos**: Acco Brands, Torre, Adioffice, Dipisa, Prisa, [Nuevo Proveedor 1], [Nuevo Proveedor 2]. Reduciremos nuestra base de 16 proveedores a solo estos 7 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
+                El primer gran paso en esta dirección lo daremos en la categoría de artículos de oficina. A partir de ahora, concentraremos todo nuestro esfuerzo estratégico y comercial trabajando exclusivamente con **siete proveedores claves y estratégicos**: Acco Brands, Torre, Distec Pronobel, Adiofice, Dipisa y Prisa. Reduciremos nuestra base de 16 proveedores a solo estos 7 socios estratégicos. Esta consolidación nos permitirá fortalecer nuestras relaciones, mejorar la eficiencia, optimizar nuestras compras y, en definitiva, entregar un mejor servicio y valor a nuestros clientes.
             </p>
             <p class="text-main mb-2">
                 Esta medida debe ir acompañada de un foco implacable en la rentabilidad. Por ello, es fundamental priorizar a los clientes que sí pagan. Nuestro equipo de Administración y Finanzas jugará un rol crucial aquí, manteniéndonos alerta y asegurando que cada venta que cerremos contribuya positivamente al resultado final. El esfuerzo de venta es valioso solo cuando se traduce en flujo de caja.
