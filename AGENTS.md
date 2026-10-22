@@ -1,6 +1,6 @@
 # Protocolo compartido
 
-Aplica a Ailín/GPT, Claude, Grok y cualquier colaborador de este repositorio.
+Aplica a Ailín/GPT, Claude, Grok, Cursor y cualquier colaborador de este repositorio.
 
 ## Fuente única y alcance
 

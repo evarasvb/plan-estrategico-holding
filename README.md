@@ -1,6 +1,6 @@
 # Espacio de trabajo compartido
 
-Repositorio de coordinación y entregables para Ailín/GPT, Claude y Grok.
+Repositorio de coordinación y entregables para Ailín/GPT, Claude, Grok y Cursor.
 
 ## Empezar
 
@@ -15,6 +15,8 @@ Repositorio de coordinación y entregables para Ailín/GPT, Claude y Grok.
 - [Protocolo compartido](AGENTS.md)
 - [Entrada para Claude](CLAUDE.md)
 - [Entrada para Grok](GROK.md)
+- [Entrada para Cursor](CURSOR.md)
+- [Entrada para Ailín/GPT](GPT.md)
 - [Uso de tareas y estados](tareas/README.md)
 - [Plantilla de tarea](tareas/PLANTILLA.md)
 
