@@ -15,7 +15,7 @@ Convención: **[VERIFICADO: fuente N]** = dato con URL pública leída el 23-10-
 | Fecha | 29 de noviembre de 2025 | [VERIFICADO: 1] |
 | ISBN | 9798273298293 | [VERIFICADO: 1] |
 | Extensión | 122 páginas | [VERIFICADO: 1] |
-| Materias bibliográficas | Business & Economics › International › General; Business & Economics / Entrepreneurship; Business & Economics / International / General | [VERIFICADO: 1] Texto literal de la ficha. Queda aparte cualquier categoría comercial vigente. |
+| Materias bibliográficas | [PENDIENTE DE CONTRASTE] no verificado en la fuente; no usar en piezas de venta | Pendiente de contraste. |
 | Serie | Volumen 1 de una saga de 7 tomos (Volume 1 of Véndele al Estado y No Mueras en el Intento) | [VERIFICADO: 1] |
 | Formatos | — | Se verifican solo antes de una publicación autorizada. |
 | Dónde se vende | — | Sin fuente legible de venta vigente. El sello editorial Kdp no acredita disponibilidad actual en Amazon. |
@@ -66,7 +66,7 @@ Cada [ENLACE_PENDIENTE] es un marcador: no hay URL confirmada y estas piezas no 
 
 ## 4. Fuentes (consultadas el 23-10-2026)
 
-1. Google Books, ficha bibliográfica: https://books.google.com/books/about/V%C3%A9ndele_al_Estado_y_No_Mueras_en_el_Int.html?id=paLG0QEACAAJ — Lectura del 23-10-2026. Respalda el título, el autor tal como figura en la ficha, la editorial, la fecha, el ISBN, la extensión, las materias bibliográficas y la descripción pública (incluida la saga de 7 tomos). No equivale a lectura del manuscrito ni a disponibilidad comercial vigente.
+1. Google Books, ficha bibliográfica: https://books.google.com/books/about/V%C3%A9ndele_al_Estado_y_No_Mueras_en_el_Int.html?id=paLG0QEACAAJ — Lectura del 23-10-2026. Respalda el título, el autor tal como figura en la ficha, la editorial, la fecha, el ISBN, la extensión y la descripción pública (incluida la saga de 7 tomos). Las materias bibliográficas quedan [PENDIENTE DE CONTRASTE]: no verificado en la fuente; no usar en piezas de venta. No equivale a lectura del manuscrito ni a disponibilidad comercial vigente.
 
 2. URL de LinkedIn citada en el borrador previo (publicación del 26-06-2026): https://es.linkedin.com/posts/evaras_v%C3%A9ndele-al-estado-y-no-mueras-en-el-intento-activity-7476308759187709952-Dcsq — En la lectura del 23-10-2026 el contenido no se recuperó. No se usa como [VERIFICADO].
 
