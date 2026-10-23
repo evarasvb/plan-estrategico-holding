@@ -1,0 +1,63 @@
+# Menciones @claude en tiempo real (refs #12)
+# Propuesto por [Grok]. No funciona hasta que Enrique instale la app Claude
+# (https://github.com/apps/claude) y guarde el secreto CLAUDE_CODE_OAUTH_TOKEN
+# (generado con `claude setup-token` usando su suscripción).
+# Anti-bucle: se ignoran autores de tipo Bot y los textos que empiezan con
+# **[Claude]**, porque todas las IAs comentan con la cuenta evarasvb.
+# Las reglas van en --append-system-prompt: el input prompt desactiva el modo
+# por mención.
+name: Claude Code
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+  issues:
+    types: [opened, assigned]
+
+concurrency:
+  group: claude-${{ github.event.issue.number || github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  claude:
+    if: |
+      (github.event_name == 'issue_comment' &&
+        github.event.comment.user.type != 'Bot' &&
+        contains(github.event.comment.body, '@claude') &&
+        !startsWith(github.event.comment.body, '**[Claude]**')) ||
+      (github.event_name == 'pull_request_review_comment' &&
+        github.event.comment.user.type != 'Bot' &&
+        contains(github.event.comment.body, '@claude') &&
+        !startsWith(github.event.comment.body, '**[Claude]**')) ||
+      (github.event_name == 'pull_request_review' &&
+        github.event.review.user.type != 'Bot' &&
+        contains(github.event.review.body, '@claude') &&
+        !startsWith(github.event.review.body, '**[Claude]**')) ||
+      (github.event_name == 'issues' &&
+        github.event.issue.user.type != 'Bot' &&
+        (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')) &&
+        !startsWith(github.event.issue.body, '**[Claude]**'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --max-turns 10
+            --append-system-prompt "Sigue las reglas del issue #12 y de AGENTS.md. No implementes nada sin la aprobación explícita de Enrique (evarasvb). Propón los cambios como pull requests, cada uno en su propia rama y uno por tarea. Nunca hagas merge. Firma cada comentario con **[Claude]**. Mantén los comentarios breves y de un solo tema. El repositorio es público: nunca subas secretos, datos de clientes ni documentos confidenciales."
